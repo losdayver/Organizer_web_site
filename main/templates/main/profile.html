@@ -1,0 +1,84 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+{% if user.is_authenticated %}
+    <h1>Welcome to your personal page, {{user.username}}!</h1>
+    <hr>
+    <h2>Personal events:</h2>
+    <hr>
+    {% for event in events_list %}
+        <p>Event name: {{event.name}}</p>
+        <p>Event text: {{event.text}}</p>
+        <p>Start time: {{event.startTime}}</p>
+        <p>Deadline time: {{event.deadlineTime}}</p>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" name="event-id" value={{event.id}}>delete event</button>
+        </form>
+        <hr>
+        
+    {% endfor %}
+    <table class="calendar">
+        <thead>
+          <tr>
+            <th>Monday</th>
+            <th>Tuesday</th>
+            <th>Wednesday</th>
+            <th>Thursday</th>
+            <th>Friday</th>
+            <th>Saturday</th>
+            <th>Sunday</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="event">Event 1</td>
+          </tr>
+          <tr>
+            <td class="event">Event 2</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td class="event">Event 3</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td class="event">Event 4</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>1</td>
+            <td>2</td>
+            <td class="event">3 Event 5</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+{% else %}
+    <h1>You are not registered. Click <a href="/login">here</a> to login or <a href="/sign-up">here</a> to sign up</h1>
+{% endif %}
+{% endblock %}
