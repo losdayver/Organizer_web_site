@@ -35,6 +35,7 @@ body {
 	list-style-type: none;
 	padding-left: 0;
 	margin-bottom: 0;
+	margin: 60px;
 }
 
 .navbar-menu li{
@@ -63,13 +64,13 @@ body {
 	opacity: 1;
 	text-decoration: none;
 	transition: all .07s ease-in-out;
+	margin: 60px;
 }
 
 .content {
 	height: 100%;
-	margin: 0;
+	margin:0;
 	padding: 2% 7%;
-
 }
 
 /**
@@ -96,7 +97,7 @@ body{
     color: #61898B;
 }
 table, th, td{
-    width: 100%;
+	width: 100%;
     table-layout: fixed;
     text-align: center;
     font-size: 27px;
