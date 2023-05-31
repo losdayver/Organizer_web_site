@@ -115,14 +115,44 @@ th{
     font-family: arial black;
 }
 td{
+	position: relative;
     background: #ffffff;
     color: #61898B;
+	height: auto;
+	padding-bottom: 22px;
 }
 td:hover{
     background: #E6F1F7;
 }
-
-.date_num, .event{
+.date_num {
+	position: absolute; /* задаем абсолютное позиционирование */
+	top: 5px; /* отступ сверху */
+	left: 5px; /* отступ слева */
+	font-size: 20px; /* размер шрифта */
+	font-weight: bold; /* жирный шрифт */
+	margin-top: 5px 0;
+  }
+  
+  .event {
+	position:relative; /* задаем абсолютное позиционирование */
+	width: calc(100% - 20px); /* ширина с отступами*/
+	top: 22px; /* отступ сверху */
+	left: 10px; /* отступ слева */
+	padding: 5px; /* внутренний отступ */
+	font-size: 15px; /* размер шрифта */
+	border-radius: 5px; /* радиус скругления углов */
+	text-align: left;
+	word-wrap: break-word;
+	box-sizing: border-box;
+	border-style: solid;
+	border-color: transparent;
+	margin-top: 10px;
+	margin-bottom: 10px; 
+  }
+p{
+    margin-top: 1px; 
+}
+/* .date_num, .event{
 	margin: 5px 0;
 }
 
@@ -136,7 +166,7 @@ td:hover{
 	box-sizing: border-box;
 	border-style: solid;
 	border-color: transparent;
-}
+} */
 
 .event:hover{
 	border-color: rgb(100,100,100);
