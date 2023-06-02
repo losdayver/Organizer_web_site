@@ -22,7 +22,7 @@ body {
 .navbar{
 	width: 100%;
 	height: 70px;
-	background-color: #99B9BB;
+	background-color: #61898B;
 	box-shadow: 0 4px 10px rgba(0,  0,0,.1);
 }
 
@@ -51,6 +51,7 @@ body {
 	opacity: 0.85;
 	text-decoration: none;
 	padding: 10px;
+	font-size: 18px;
 	transition: all .07s ease-in-out;
 }
 
@@ -120,6 +121,7 @@ td{
     color: #61898B;
 	height: auto;
 	padding-bottom: 22px;
+	height: 50px;
 }
 td:hover{
     background: #E6F1F7;
@@ -171,3 +173,15 @@ p{
 .event:hover{
 	border-color: #61898B;
 }
+
+
+.arrows {
+	text-decoration: none;
+	display: inline-block;
+	padding: 20px 20px;
+	color:  #99B9BB;
+  }
+  
+  .arrows:hover {
+	color:  #61898B;
+  }
