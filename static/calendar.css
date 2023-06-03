@@ -49,22 +49,22 @@ td:hover{
     background: #E6F1F7;
 }
 .date_num {
-	position: absolute; /* задаем абсолютное позиционирование */
-	top: 5px; /* отступ сверху */
-	left: 5px; /* отступ слева */
-	font-size: 20px; /* размер шрифта */
-	font-weight: bold; /* жирный шрифт */
+	position: absolute; 
+	top: 5px;
+	left: 5px; 
+	font-size: 20px;
+	font-weight: bold; 
 	margin-top: 5px 0;
   }
   
   .event {
-	position:relative; /* задаем абсолютное позиционирование */
-	width: calc(100% - 20px); /* ширина с отступами*/
-	top: 22px; /* отступ сверху */
-	left: 10px; /* отступ слева */
-	padding: 5px; /* внутренний отступ */
-	font-size: 15px; /* размер шрифта */
-	border-radius: 5px; /* радиус скругления углов */
+	position:relative; 
+	width: calc(100% - 20px); 
+	top: 22px; 
+	left: 10px; 
+	padding: 5px;
+	font-size: 15px;
+	border-radius: 5px; 
 	text-align: left;
 	word-wrap: break-word;
 	box-sizing: border-box;
@@ -106,4 +106,67 @@ p{
   
   .arrows:hover {
 	color:  #61898B;
+  }
+/* кнопки создания события и фильтрации тегов*/
+
+.wrapper {
+	display: flex;
+	align-items: center;
+	margin-top: 5px;
+	margin-bottom: 10px;
+  }
+
+.wrapper1 {
+	position: relative;
+	right: 0;
+	height: 30px;
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-start;
+	padding: 5px;
+  }
+
+.wrapper2 {
+	position: relative;
+	left: 0;
+	height: 30px;
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-start;
+	padding: 5px;
+  }
+  
+  .create-event-btn1 {
+	white-space: nowrap;
+	background-color: #99B9BB;
+	box-shadow: inset 0 0 0 2px #61898B;
+	color: #ffffff;
+	padding: 15px 40px;
+	border: none;
+	border-radius: 30px;
+	cursor: pointer;
+	margin-top: 5px;
+	font-size: 22px;
+  }
+  .create-event-btn2 {
+	margin-left: 1110px;
+	white-space: nowrap;
+	position:absolute;
+    left: 0px;
+	background-color: rgb(255, 255, 255);
+	box-shadow: inset 0 0 0 2px #61898B;
+	color: #61898B;
+	padding: 15px 40px;
+	border: none;
+	border-radius: 30px;
+	cursor: pointer;
+	margin-top: 5px;
+	font-size: 22px;
+  }
+  .create-event-btn1:hover {
+	background-color: #61898B;
+  }
+  
+  .create-event-btn2:hover {
+	background-color: #E6F1F7;
   }

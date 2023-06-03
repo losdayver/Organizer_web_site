@@ -1,8 +1,3 @@
-
- /* шапка */
-
- /* заметки */
-
 h2{
     font-family: serif;
     font-weight: bold;
@@ -12,33 +7,34 @@ h2{
 }
 
 .danger {
-    width: 1600px; /* задаем фиксированную ширину блока */
-    margin: 0 auto; /* добавляем margin со значением auto */
+    font-size: 20px;
+    width: 1600px; 
+    margin: 0 auto;
     border-radius: 30px;
     margin-bottom: 15px;
     padding: 4px 12px;
-    background-color: #ffdddd;
-    border-left: 6px solid #f44336;
+    background-color: #F7D0D0;
+    border-left: 6px solid #C5A9A9;
 }
 
-.danger:hover{}
-
 .success {
+    font-size: 20px;
     width: 1600px; /* задаем фиксированную ширину блока */
     margin: 0 auto; /* добавляем margin со значением auto */
     border-radius: 30px;
     margin-bottom: 15px;
     padding: 4px 12px;
-    background-color: #ddffdd;
-    border-left: 6px solid #4CAF50;
+    background-color: #DEEFD7;
+    border-left: 6px solid #AABDA2;
 }
 
 .info {
+    font-size: 20px;
     width: 1600px; /* задаем фиксированную ширину блока */
     margin: 0 auto; /* добавляем margin со значением auto */
     border-radius: 30px;
     margin-bottom: 15px;
     padding: 4px 12px;
-    background-color: #e7f3fe;
-    border-left: 6px solid #2196F3;
+    background-color: #DCE6F2;
+    border-left: 6px solid #ABBBCD;
 }
