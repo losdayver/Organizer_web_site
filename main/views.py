@@ -9,6 +9,8 @@ from datetime import datetime
 from calendar import monthrange, weekday
 from django.forms.models import model_to_dict
 
+import random
+
 # Create your views here
 def home(request):
     return render(request, 'main/home.html', {})
@@ -40,10 +42,10 @@ def calendar(request):
             event_dict = model_to_dict(o)
 
             event_day = event_dict['startTime'].day
-
             event_name = event_dict['name']
+            event_id = event_dict['id']
 
-            event_dict = {'name':event_name}
+            event_dict = {'name':event_name, 'color':'#F7D5D0', 'event_id':event_id}
 
             data[event_day + start_day - 1]['events'].append(event_dict)
 

@@ -26,16 +26,13 @@
                     <p> {{data_cell|get_value_from_dict:'date_num'}}</p>
                 </div>
 
-                
-
-
                 {%for event in data_cell|get_value_from_dict:'events'%}
-                    <div class="event" style="background-color: #F7D0D0;">
-                        {{event|get_value_from_dict:'name'}}
-                    </div>
+                    <a href="/event/{{event|get_value_from_dict:'event_id'}}">
+                        <div class="event" style="background-color: {{event|get_value_from_dict:'color'}};">
+                            {{event|get_value_from_dict:'name'}}
+                        </div>
+                    </a>
                 {%endfor%}
-
-
             {% endif %}
         </td>
 
