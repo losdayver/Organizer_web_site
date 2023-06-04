@@ -1,0 +1,49 @@
+{% extends 'main/index.html' %}
+{% load main_extras %}
+{%block content%}
+<div class="calendar">
+    <div class="month">
+        <strong>ИЮНЬ</strong>
+        <strong>2023</strong>
+    </div>
+    <table>
+        <tr>
+            <th>Пн</th>
+            <th>Вт</th>
+            <th>Ср</th>
+            <th>Чт</th>
+            <th>Пт</th>
+            <th>Сб</th>
+            <th>Вс</th>
+        </tr>
+        {%for data_cell in data%}
+
+        <td>
+            {% if data_cell != None %}
+
+
+                <div class="date_num">
+                    <p> {{data_cell|get_value_from_dict:'date_num'}}</p>
+                </div>
+
+                
+
+
+                {%for event in data_cell|get_value_from_dict:'events'%}
+                    <div class="event" style="background-color: #F7D0D0;">
+                        {{event|get_value_from_dict:'name'}}
+                    </div>
+                {%endfor%}
+
+
+            {% endif %}
+        </td>
+
+        {%if forloop.counter|divisibleby:7%}
+            </tr>
+        {%endif%}
+        
+        {%endfor%}
+    </table>
+</div>
+{%endblock%}
