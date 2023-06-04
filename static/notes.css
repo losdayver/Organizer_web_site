@@ -38,3 +38,67 @@ h2{
     background-color: #DCE6F2;
     border-left: 6px solid #ABBBCD;
 }
+
+/* кнопки написания заметки и фильтрации тегов*/
+
+.wrapper {
+	display: flex;
+	align-items: center;
+	margin-top: 5px;
+	margin-bottom: 10px;
+  }
+
+.wrapper1 {
+	position: relative;
+	right: 0;
+	height: 30px;
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-start;
+	padding: 5px;
+  }
+
+.wrapper2 {
+	position: relative;
+	left: 0;
+	height: 30px;
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-start;
+	padding: 5px;
+  }
+  
+  .create-note-btn1 {
+	white-space: nowrap;
+	background-color: #99B9BB;
+	box-shadow: inset 0 0 0 2px #61898B;
+	color: #ffffff;
+	padding: 15px 40px;
+	border: none;
+	border-radius: 30px;
+	cursor: pointer;
+	margin-top: 5px;
+	font-size: 22px;
+  }
+  .create-note-btn2 {
+	margin-left: 1110px;
+	white-space: nowrap;
+	position:absolute;
+    left: 0px;
+	background-color: rgb(255, 255, 255);
+	box-shadow: inset 0 0 0 2px #61898B;
+	color: #61898B;
+	padding: 15px 40px;
+	border: none;
+	border-radius: 30px;
+	cursor: pointer;
+	margin-top: 5px;
+	font-size: 22px;
+  }
+  .create-note-btn1:hover {
+	background-color: #61898B;
+  }
+  
+  .create-note-btn2:hover {
+	background-color: #E6F1F7;
+  }
