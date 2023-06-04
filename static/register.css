@@ -26,8 +26,9 @@ body {
     display: block;
     font-weight: bold;
     margin-bottom: 5px;
+    margin-top: 10px;
  }
- input[type="text"], input[type="email"], input[type="password"] {
+ input[type="text"], input[type="email"], input[type="password"], textarea, input[type="datetime-local"] {
     width: 100%;
     padding: 10px;
     border-radius: 5px;
@@ -44,6 +45,7 @@ body {
     font-size: 18px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    margin-top: 10px;
  }
  input[type="submit"]:hover {
     background-color: #7ba5a7;
