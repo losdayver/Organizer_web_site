@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Notes</title>
+<title>Создать событие</title>
 <!-- Bootstrap reboot (для сброса стилей) -->
 <link rel="stylesheet" href="libs/bootstrap-reboot.min.css">
 
@@ -15,8 +15,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="css/notes.css">
-<link rel="stylesheet" type="text/css" href="notes.css">
+<link rel="stylesheet" href="css/register.css">
+<link rel="stylesheet" type="text/css" href="register.css">
 
 <link rel="stylesheet" href="css/header.css">
 <link rel="stylesheet" type="text/css" href="header.css">
@@ -36,34 +36,18 @@
 	    </div>
 	</nav>
 
-<!-- заметки -->
-<div class="content">
-    <div class="wrapper">
-        <div class="wrapper1">
-            <button class="create-note-btn1">Написать заметку</button>
-          </div>
-        <div class="wrapper2">
-            <button class="create-note-btn2">Фильтр по тегам</button>
-          </div>
-    </div>
+    <h2>Создать событие</h2>
 
-    <div class="note">
-        <h2>Мои заметки</h2>
-        <div class="danger">
-        <p><strong>Danger!</strong> Some text...</p>
-        </div>
-
-        <div class="success">
-        <p><strong>Success!</strong> Some text...</p>
-        </div>
-
-        <div class="info">
-        <p><strong>Info!</strong> Some text...</p>
-        </div>
-    </div>
-</div>
-</body>
+    <form>
+        <label for="event_name">Название события:</label>
+        <input type="text" id="event_name" name="event_name" required>
+        <label for="event_description">Описание события:</label>
+        <textarea id="event_description" name="event_description" required></textarea>
+        <label for="event_start">Дата и время начала:</label>
+        <input type="datetime-local" id="event_start" name="event_start" required>
+        <label for="event_end">Дата и время окончания:</label>
+        <input type="datetime-local" id="event_end" name="event_end" required>
+        <input type="submit" value="Создать событие">
+     </form>
+  </body>
 </html>
-
-
-
