@@ -6,9 +6,14 @@ h2{
     color: #61898B;
 }
 
-.danger {
+a {
+	text-decoration: none;
+  }
+
+.red {
+	color: #000;
     font-size: 20px;
-    width: 1600px; 
+    width: 1200px; 
     margin: 0 auto;
     border-radius: 30px;
     margin-bottom: 15px;
@@ -17,9 +22,11 @@ h2{
     border-left: 6px solid #C5A9A9;
 }
 
-.success {
+.green {
+
+	color: #000;
     font-size: 20px;
-    width: 1600px; /* задаем фиксированную ширину блока */
+    width: 1200px; /* задаем фиксированную ширину блока */
     margin: 0 auto; /* добавляем margin со значением auto */
     border-radius: 30px;
     margin-bottom: 15px;
@@ -28,15 +35,23 @@ h2{
     border-left: 6px solid #AABDA2;
 }
 
-.info {
+.blue {
+	color: #000;
     font-size: 20px;
-    width: 1600px; /* задаем фиксированную ширину блока */
+    width: 1200px; /* задаем фиксированную ширину блока */
     margin: 0 auto; /* добавляем margin со значением auto */
     border-radius: 30px;
     margin-bottom: 15px;
     padding: 4px 12px;
     background-color: #DCE6F2;
     border-left: 6px solid #ABBBCD;
+}
+
+.red:hover,
+.green:hover,
+.blue:hover {
+  opacity: 0.8;
+  transition: all .08s ease-in-out;
 }
 
 /* кнопки написания заметки и фильтрации тегов*/

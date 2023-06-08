@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Моя заметка</title>
+<!-- Bootstrap reboot (для сброса стилей) -->
+<link rel="stylesheet" href="libs/bootstrap-reboot.min.css">
+
+<!-- Bootstrap сетка -->
+<link rel="stylesheet" href="libs/bootstrap-grid.min.css">
+
+<link rel="stylesheet" href="./css/styles.css">
+
+<!-- Шрифты с Google Fonts -->
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/register.css">
+<link rel="stylesheet" type="text/css" href="register.css">
+
+<link rel="stylesheet" href="css/header.css">
+<link rel="stylesheet" type="text/css" href="header.css">
+
+</head>
+<body>
+<!-- шапка -->
+    <nav class="navbar">
+		<div class="container">
+			<a href="#" class="navbar-brand">YOUR ORGANIZER</a>
+				<ul class="navbar-menu">
+					<li><a href="#">Home</a></li>
+					<li><a href="#">Register</a></li>	
+					<li><a href="#">Login</a></li>
+					<li><a href="#">Personal page</a></li>
+				</ul>
+	    </div>
+	</nav>
+
+    <h2>Заметка</h2>
+
+    <form>
+        <label for="event_name">Название заметки:</label>
+        <input type="text" id="event_name" name="event_name" required>
+        <label for="event_description">Текст:</label>
+        <textarea id="event_description" name="event_description" required></textarea>
+     </form>
+  </body>
+</html>
