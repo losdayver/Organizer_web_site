@@ -7,7 +7,7 @@ body{
     background-repeat: no-repeat;
 }
 .calendar{
-    font-family: serif;
+    font-family: Calibri;
     font-weight: bold;
     margin-left: 0;
     margin-right: 0;
@@ -26,7 +26,7 @@ table, th, td{
     text-align: center;
     font-size: 27px;
     border-collapse: collapse;
-    border:5px solid #61898B;
+    border:2px solid #61898B;
     font-family: Elaphant;
 }
 tr, th, td{
@@ -58,6 +58,7 @@ td:hover{
   }
   
   .event {
+	font-family: Calibri;
 	position:relative; 
 	width: calc(100% - 20px); 
 	top: 22px; 

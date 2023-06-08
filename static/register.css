@@ -1,13 +1,14 @@
 h2{
-    font-family: serif;
+    font-family: Calibri;
     font-weight: bold;
     text-align: center;
     font-size: 80px;
     color: #61898B;
+    margin-bottom: 20px;
 }
 
 body {
-    font-family: sans-serif;
+    font-family: Calibri;
     background-color: #f9f9f9;
  }
  form {
