@@ -11,6 +11,24 @@ from django.forms.models import model_to_dict
 
 import random
 
+
+month_names = {
+    1: 'Январь',
+    2: 'Февраль',
+    3: 'Март',
+    4: 'Апрель',
+    5: 'Май',
+    6: 'Июнь',
+    7: 'Июль',
+    8: 'Август',
+    9: 'Сентябрь',
+    10: 'Октябрь',
+    11: 'Ноябрь',
+    12: 'Декабрь',
+}
+
+
+
 # Create your views here
 def home(request):
     return render(request, 'main/home.html', {})
@@ -19,8 +37,21 @@ def calendar(request):
     if request.method == 'GET':
         # TODO сделать лучше
 
-        year = 2023
-        month = 6
+        try:
+            year = int(request.GET.get('year'))
+            month = int(request.GET.get('month'))
+
+            if (year < 1000 or year > 3000 or month < 1 or month > 12):
+                raise Exception()
+        except:
+            now = datetime.now()
+            
+            year = now.year
+            month = now.month
+
+            redirect_url = f'/calendar?year={year}&month={month}'
+
+            return redirect(redirect_url)
 
         num_days = monthrange(year, month)[1]
 
@@ -28,7 +59,7 @@ def calendar(request):
         start_day = weekday(year, month, 1)
 
         start_date = datetime(year, month, 1)
-        end_date = start_date.replace(day=30)
+        end_date = start_date.replace(day=num_days)
 
         # data index = calendar row index
         data = [None]*start_day
@@ -51,7 +82,10 @@ def calendar(request):
 
         print(data) 
 
-    return render (request, 'main/calendar_isolated.html', {'data': data})
+    return render (request, 'main/calendar_isolated.html', {'data': data, 
+                                                            'year_month': f'{year} {month}', 
+                                                            'month_name': month_names[month],
+                                                            'year': year})
 
 def testing(request):
     return render(request, 'main/calendar.html', {})
