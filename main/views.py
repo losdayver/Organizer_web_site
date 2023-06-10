@@ -27,8 +27,6 @@ month_names = {
     12: 'Декабрь',
 }
 
-
-
 # Create your views here
 def home(request):
     return render(request, 'main/home.html', {})
@@ -138,3 +136,32 @@ def create_event(request):
         return redirect('/calendar')
 
     return render(request, 'main/create_event.html') 
+
+def edit_event(request):
+    id = request.GET.get('id')
+
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        text = request.POST.get('text')
+        startTime = request.POST.get('startTime')
+
+        e = Event()
+
+        print(name)
+        print(text)
+        print(startTime)
+        print(request.user)
+
+        e.id = id
+        e.name = name
+        e.text = text
+        e.startTime = startTime
+        e.author = request.user
+
+        e.save()
+
+        return redirect('/calendar')
+
+    event = Event.objects.filter(id=id)[0]
+
+    return render(request, 'main/edit_event.html', {'event':event})

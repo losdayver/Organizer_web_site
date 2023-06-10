@@ -1,6 +1,17 @@
 {% extends 'main/index.html' %}
 {% load main_extras %}
 {%block content%}
+
+<div class="content">
+    <div class="wrapper">
+        <div class="wrapper1">
+            <a href="/create-event"><button class="create-event-btn1">Создать событие</button></a>
+          </div>
+        <div class="wrapper2">
+            <a href="#"><button class="create-event-btn2">Фильтр по тегам</button></a>
+          </div>
+    </div>
+
 <div class="calendar">
     <div class="month">
         <a href={{year_month|calculate_previous_month}} class="arrows">&#8249;</a>
@@ -29,7 +40,7 @@
                 </div>
 
                 {%for event in data_cell|get_value_from_dict:'events'%}
-                    <a href="/event?id={{event|get_value_from_dict:'event_id'}}">
+                    <a href="/edit-event?id={{event|get_value_from_dict:'event_id'}}">
                         <div class="event" style="background-color: {{event|get_value_from_dict:'color'}};">
                             {{event|get_value_from_dict:'name'}}
                         </div>

@@ -1,11 +1,6 @@
 /**
  * Календарь
  */
-
-body{
-    background-size: cover;
-    background-repeat: no-repeat;
-}
 .calendar{
     font-family: Calibri;
     font-weight: bold;
@@ -57,7 +52,7 @@ td:hover{
 	margin-top: 5px 0;
   }
   
-  .event {
+.event {
 	font-family: Calibri;
 	position:relative; 
 	width: calc(100% - 20px); 
@@ -74,7 +69,7 @@ td:hover{
 	margin-top: 10px;
 	margin-bottom: 10px; 
   }
-p{
+.date_num p{
     margin-top: 1px; 
 }
 /* .date_num, .event{
