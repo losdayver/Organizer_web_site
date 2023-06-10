@@ -7,7 +7,6 @@ class Event(models.Model):
     name = models.CharField(max_length=40)
     text = models.TextField()
     startTime = models.DateTimeField()
-    deadlineTime = models.DateTimeField()
 
 class Note(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)

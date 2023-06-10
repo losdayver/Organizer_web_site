@@ -13,7 +13,7 @@ class RegistrationForm(UserCreationForm):
 class EventForm(forms.ModelForm):
     class Meta:
         model = Event
-        fields = ['name', 'text', 'startTime', 'deadlineTime']
+        fields = ['name', 'text', 'startTime']
 
 
 

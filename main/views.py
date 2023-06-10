@@ -88,7 +88,7 @@ def calendar(request):
                                                             'year': year})
 
 def testing(request):
-    return render(request, 'main/calendar.html', {})
+    return render(request, 'main/create_event.html', {})
 
 @login_required(login_url='/login')
 def profile(request):
@@ -115,17 +115,26 @@ def sing_up(request):
 
 @login_required(login_url='/login')
 def create_event(request):
-    if request.method == 'POST':
-        form = EventForm(request.POST)
-        if form.is_valid():
-            event = form.save(commit=False)
-            event.author = request.user
-            event.deadline = form.cleaned_data['deadlineTime']
-            print('asdadasd')
-            print(form.cleaned_data)
-            event.save()
-            return redirect('/profile')
-    else:
-        form = EventForm()
 
-    return render(request, 'main/create_event.html', {'form': form}) 
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        text = request.POST.get('text')
+        startTime = request.POST.get('startTime')
+
+        e = Event()
+
+        print(name)
+        print(text)
+        print(startTime)
+        print(request.user)
+
+        e.name = name
+        e.text = text
+        e.startTime = startTime
+        e.author = request.user
+
+        e.save()
+
+        return redirect('/calendar')
+
+    return render(request, 'main/create_event.html') 

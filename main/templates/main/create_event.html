@@ -1,9 +1,18 @@
-{% extends 'main/base.html' %}
+{% extends 'main/index.html' %}
+{%block content%}
+<h2>Создать событие</h2>
 
-{% block content %}
 <form method="post">
-    {% csrf_token %}
-    {{form}}
-    <button type="submit">Create Event</button>
+    {%csrf_token%}
+    <label for="name">Название события:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="text">Описание события:</label>
+    <textarea id="text" name="text" required></textarea>
+
+    <label for="startTime">Дата и время начала:</label>
+    <input type="datetime-local" id="startTime" name="startTime" required>
+
+    <input type="submit" value="Создать событие">
 </form>
-{% endblock %}
+{%endblock%}
