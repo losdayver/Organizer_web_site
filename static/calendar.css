@@ -6,7 +6,6 @@
     font-weight: bold;
     margin-left: 0;
     margin-right: 0;
-	background-color: aqua;
 }
 .month{
 	margin-top: 22px;
@@ -45,7 +44,7 @@
 .calendar td:hover{
     background: #E6F1F7;
 }
-.date_num {
+.calendar .date_num {
 	position: absolute; 
 	top: 5px;
 	left: 5px; 
@@ -54,7 +53,7 @@
 	margin-top: 5px 0;
   }
   
-.event {
+.calendar .event {
 	font-family: 'Noto Sans', sans-serif;
 	position:relative; 
 	width: calc(100% - 20px); 
@@ -76,7 +75,7 @@
     margin-top: 1px; 
 }
 
-.event:hover{
+.calendar .event:hover{
 	border-color: #61898B;
 }
 
