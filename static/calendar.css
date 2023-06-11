@@ -9,7 +9,7 @@
 	background-color: aqua;
 }
 .month{
-	margin-top: 40px;
+	margin-top: 22px;
     text-align: center;
     background: white;
     font-size: 80px;
@@ -93,7 +93,7 @@
   }
 
 /* кнопки создания события и фильтрации тегов*/
-.wrapper {
+/* .wrapper {
 	display: flex;
 	align-items: center;
 	margin-top: 5px;
@@ -181,4 +181,72 @@
   
   .create-event-btn2:hover {
 	background-color: #E6F1F7;
+  } */
+
+  .wrapper {
+	display: flex;
+	align-items: center;
+	margin-top: 5px;
+	margin-bottom: 10px;
   }
+  
+  #search-box {
+	border: none;
+	outline: none;
+	font-family: 'Noto Sans', sans-serif;
+	margin-left: auto;
+	margin-right: 20px;
+	background-color: rgb(255, 255, 255);
+	box-shadow: inset 0 0 0 2px #a7babb;
+	color: #61898B;
+	padding: 15px 40px;
+	border-radius: 30px;
+	cursor: pointer;
+	font-size: 20px;
+  }
+  
+  .create-event-btn1 {
+	white-space: nowrap;
+	background-color: #99B9BB;
+	box-shadow: inset 0 0 0 2px #61898B;
+	color: #ffffff;
+	padding: 15px 40px;
+	border: none;
+	border-radius: 30px;
+	cursor: pointer;
+	margin-left: auto;
+	font-size: 22px;
+	margin-right: 20px;
+  }
+  
+  .create-event-btn2 {
+	white-space: nowrap;
+	background-color: rgb(255, 255, 255);
+	box-shadow: inset 0 0 0 2px #61898B;
+	color: #61898B;
+	padding: 15px 40px;
+	border: none;
+	border-radius: 30px;
+	cursor: pointer;
+	font-size: 22px;
+  }
+
+  .create-event-btn1:hover {
+	background-color: #61898B;
+  }
+  
+  .create-event-btn2:hover {
+	background-color: #E6F1F7}
+  
+  input[type="text"] {
+	margin-right: 20px;
+	padding: 15px 40px;
+	border-radius: 30px;
+	font-size: 20px;
+	box-shadow: inset 0 0 0 2px #61898B;
+	border: none;
+	outline: none;
+	color: #61898B;
+	background-color: rgb(255, 255, 255);
+  }
+  
