@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .forms import RegistrationForm, EventForm
-from .models import Event
+from .models import Event, Note
 from django.contrib.auth import login, logout, authenticate
 
 from django.db.models import Q
@@ -189,5 +189,52 @@ def edit_event(request):
 
     return render(request, 'main/edit_event.html', {'event':event})
 
+@login_required(login_url='/login')
 def notes(request):
-    return render(request, 'main/notes.html', {})
+    objects = Note.objects.filter(author=request.user)
+
+    return render(request, 'main/notes.html', {'notes':objects})
+
+@login_required(login_url='/login')
+def create_note(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        text = request.POST.get('text')
+        color = request.POST.get('color')
+
+        n = Note()
+
+        n.name = name
+        n.text = text
+        n.author = request.user
+        n.color = color
+
+        n.save()
+
+        return redirect('/notes')
+
+    return render(request, 'main/create_note.html') 
+
+@login_required(login_url='/login')
+def edit_note(request):
+    id = request.GET.get('id')
+
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        text = request.POST.get('text')
+        color = request.POST.get('color')
+
+        n = Note()
+
+        n.id = id
+        n.name = name
+        n.text = text
+        n.author = request.user
+        n.color = color
+
+        n.save()
+
+        return redirect('/notes')
+
+    note = Note.objects.filter(id=id)[0]
+    return render(request, 'main/edit_note.html', {'note':note}) 
