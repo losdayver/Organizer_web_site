@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .forms import RegistrationForm, EventForm
-from .models import Event
+from .models import Event, Note
 from django.contrib.auth import login, logout, authenticate
 
 from django.db.models import Q
@@ -31,9 +31,16 @@ month_names = {
 def home(request):
     return render(request, 'main/home.html', {})
 
+@login_required(login_url='/login')
 def calendar(request):
     if request.method == 'GET':
-        # TODO сделать лучше
+        try:
+            tag_search = request.GET.get('search_bar_contents')
+            tag_search += f'&tag={request.GET.get("search-box")}'
+
+            return redirect(tag_search)
+        except:
+            pass
 
         try:
             year = int(request.GET.get('year'))
@@ -67,23 +74,37 @@ def calendar(request):
 
         objects = Event.objects.filter(Q(startTime__gte=start_date) & Q(startTime__lte=end_date))
 
+        try:
+            tag = request.GET.get('tag')
+
+            if tag == None or tag == '':
+                raise Exception()
+            
+            objects = objects.filter(tag=tag)
+        except: pass
+
         for o in objects:
             event_dict = model_to_dict(o)
 
             event_day = event_dict['startTime'].day
             event_name = event_dict['name']
             event_id = event_dict['id']
+            color = generate_color(event_dict['tag'])
 
-            event_dict = {'name':event_name, 'color':'#F7D5D0', 'event_id':event_id}
+            event_dict = {'name':event_name, 'color':f'{color}', 'event_id':event_id}
 
             data[event_day + start_day - 1]['events'].append(event_dict)
-
-        print(data) 
 
     return render (request, 'main/calendar.html', {'data': data, 
                                                             'year_month': f'{year} {month}', 
                                                             'month_name': month_names[month],
-                                                            'year': year})
+                                                            'year': year,
+                                                            'search_bar_contents':f'/calendar?year={year}&month={month}'})
+
+def generate_color(word):
+    random.seed(word)
+    color = '#{:06x}'.format(random.randint(0x555555, 0xbbbbbb))
+    return color
 
 def testing(request):
     return render(request, 'main/notes.html', {})
@@ -168,5 +189,52 @@ def edit_event(request):
 
     return render(request, 'main/edit_event.html', {'event':event})
 
+@login_required(login_url='/login')
 def notes(request):
-    return render(request, 'main/notes.html', {})
+    objects = Note.objects.filter(author=request.user)
+
+    return render(request, 'main/notes.html', {'notes':objects})
+
+@login_required(login_url='/login')
+def create_note(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        text = request.POST.get('text')
+        color = request.POST.get('color')
+
+        n = Note()
+
+        n.name = name
+        n.text = text
+        n.author = request.user
+        n.color = color
+
+        n.save()
+
+        return redirect('/notes')
+
+    return render(request, 'main/create_note.html') 
+
+@login_required(login_url='/login')
+def edit_note(request):
+    id = request.GET.get('id')
+
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        text = request.POST.get('text')
+        color = request.POST.get('color')
+
+        n = Note()
+
+        n.id = id
+        n.name = name
+        n.text = text
+        n.author = request.user
+        n.color = color
+
+        n.save()
+
+        return redirect('/notes')
+
+    note = Note.objects.filter(id=id)[0]
+    return render(request, 'main/edit_note.html', {'note':note}) 

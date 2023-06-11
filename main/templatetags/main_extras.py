@@ -1,4 +1,7 @@
 from django import template
+from datetime import datetime
+from django.utils.dateparse import parse_datetime
+
 
 register = template.Library()
 
@@ -31,8 +34,14 @@ def calculate_previous_month(year_month:str):
     
     return f'?year={year}&month={month - 1}'
 
+def prettyfy_datetime(value):
+    python_datetime = datetime.strftime(value, '%d %m %Y  %H:%M')
+
+    return(python_datetime)
+
 
 register.filter('calculate_previous_month', calculate_previous_month)  
 register.filter('calculate_next_month', calculate_next_month)    
 register.filter('get_value_from_dict', get_value_from_dict)
+register.filter('prettyfy_datetime', prettyfy_datetime)
 

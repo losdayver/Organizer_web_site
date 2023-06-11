@@ -1,0 +1,28 @@
+{% extends 'main/index.html' %}
+{% load main_extras %}
+
+{%load static%}
+
+{%block styles%}
+    <link rel="stylesheet" type="text/css" href="{% static 'register.css' %}">
+{%endblock%}
+
+{%block content%}
+<h2>Заметка</h2>
+
+<form method="post">
+    {%csrf_token%}
+    <label for="name">Название заметки:</label>
+    <input type="text" id="name" name="name" value="{{note.name}}" required>
+
+    <label for="text">Текст:</label>
+    <textarea id="text" name="text" required>{{note.text}}</textarea>
+    
+    <label for="color">Выберете цвет:</label>
+    <input type="color" id="color" name="color" value="{{note.color}}">
+
+    <div>
+    <input type="submit" value="Редактировать заметку">
+    </div>
+</form>
+{%endblock%}

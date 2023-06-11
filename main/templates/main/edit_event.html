@@ -20,7 +20,7 @@
         <textarea id="text" name="text" required>{{event.text}}</textarea>
 
         <label for="startTime">Дата и время начала:</label>
-        <input type="datetime-local" id="startTime" name="startTime" value={{event.startTime}} required>
+        <input type="datetime-local" id="startTime" name="startTime" value={{event.startTime|date:"Y-m-d\TH:i"}} required>
 
         <label for="tag">Тег:</label>
         <input type="text" id="tag" name="tag" value={{event.tag}} required>

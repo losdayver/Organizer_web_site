@@ -1,13 +1,14 @@
 /**
  * Календарь
  */
-.calendar{
-    font-family: Calibri;
+ .calendar{
+    font-family: 'Noto Sans', sans-serif;
     font-weight: bold;
     margin-left: 0;
     margin-right: 0;
 }
 .month{
+	margin-top: 22px;
     text-align: center;
     background: white;
     font-size: 80px;
@@ -15,24 +16,24 @@
     color: #61898B;
 }
 
-table, th, td{
+.calendar table, .calendar th, .calendar td{
 	width: 100%;
     table-layout: fixed;
     text-align: center;
     font-size: 27px;
     border-collapse: collapse;
     border:2px solid #61898B;
-    font-family: Elaphant;
+    font-family: 'Noto Sans', sans-serif;
 }
-tr, th, td{
+.calendar tr, .calendar th, .calendar td{
     padding: 5px;
 }
-th{
+.calendar th{
     background: #99B9BB;
     color: white;
     font-family: arial black;
 }
-td{
+.calendar td{
 	position: relative;
     background: #ffffff;
     color: #61898B;
@@ -40,7 +41,7 @@ td{
 	padding-bottom: 22px;
 	height: 50px;
 }
-td:hover{
+.calendar td:hover{
     background: #E6F1F7;
 }
 .date_num {
@@ -52,8 +53,8 @@ td:hover{
 	margin-top: 5px 0;
   }
   
-  .event {
-	font-family: Calibri;
+.event {
+	font-family: 'Noto Sans', sans-serif;
 	position:relative; 
 	width: calc(100% - 20px); 
 	top: 22px; 
@@ -68,25 +69,11 @@ td:hover{
 	border-color: transparent;
 	margin-top: 10px;
 	margin-bottom: 10px; 
+	text-decoration: none;
   }
 .date_num p{
     margin-top: 1px; 
 }
-/* .date_num, .event{
-	margin: 5px 0;
-}
-
-.event {
-	padding: 3px;
-	position: relative;
-	border-radius: 5%;
-	font-size: 15px;
-	text-align: left;
-	word-wrap: break-word;
-	box-sizing: border-box;
-	border-style: solid;
-	border-color: transparent;
-} */
 
 .event:hover{
 	border-color: #61898B;
@@ -103,33 +90,30 @@ td:hover{
   .arrows:hover {
 	color:  #61898B;
   }
+
 /* кнопки создания события и фильтрации тегов*/
 
-.wrapper {
+  .wrapper {
 	display: flex;
 	align-items: center;
-	margin-top: 5px;
+	margin-top: 20px;
 	margin-bottom: 10px;
+	justify-content: center;
   }
-
-.wrapper1 button a{
-	position: relative;
-	right: 0;
-	height: 30px;
-	display: flex;
-	justify-content: flex-end;
-	align-items: flex-start;
-	padding: 5px;
-  }
-
-.wrapper2 button a{
-	position: relative;
-	left: 0;
-	height: 30px;
-	display: flex;
-	justify-content: flex-end;
-	align-items: flex-start;
-	padding: 5px;
+  
+  #search-box {
+	border: none;
+	outline: none;
+	font-family: 'Noto Sans', sans-serif;
+	margin-left: auto;
+	margin-right: 20px;
+	background-color: rgb(255, 255, 255);
+	box-shadow: inset 0 0 0 2px #a7babb;
+	color: #61898B;
+	padding: 15px 40px;
+	border-radius: 30px;
+	cursor: pointer;
+	font-size: 20px;
   }
   
   .create-event-btn1 {
@@ -141,14 +125,13 @@ td:hover{
 	border: none;
 	border-radius: 30px;
 	cursor: pointer;
-	margin-top: 5px;
+	margin-left: auto;
 	font-size: 22px;
+	margin-right: 20px;
   }
+  
   .create-event-btn2 {
-	margin-left: 1110px;
 	white-space: nowrap;
-	position:absolute;
-    left: 0px;
 	background-color: rgb(255, 255, 255);
 	box-shadow: inset 0 0 0 2px #61898B;
 	color: #61898B;
@@ -156,13 +139,25 @@ td:hover{
 	border: none;
 	border-radius: 30px;
 	cursor: pointer;
-	margin-top: 5px;
 	font-size: 22px;
   }
+
   .create-event-btn1:hover {
 	background-color: #61898B;
   }
   
   .create-event-btn2:hover {
-	background-color: #E6F1F7;
+	background-color: #E6F1F7}
+  
+  input[type="text"] {
+	margin-right: 20px;
+	padding: 15px 40px;
+	border-radius: 30px;
+	font-size: 20px;
+	box-shadow: inset 0 0 0 2px #61898B;
+	border: none;
+	outline: none;
+	color: #61898B;
+	background-color: rgb(255, 255, 255);
   }
+  

@@ -1,5 +1,5 @@
 {% extends 'main/index.html' %}
-
+{% load main_extras %}
 {%load static%}
 
 {%block styles%}
@@ -7,33 +7,28 @@
 {%endblock%}
 
 {%block content%}
-    <div class="wrapper">
-        <div class="wrapper1">
-            <button class="create-note-btn1">Написать заметку</button>
-          </div>
-        <div class="wrapper2">
-            <button class="create-note-btn2">Фильтр по тегам</button>
-          </div>
+<div class="wrapper">
+    <div class="wrapper1">
+        <a href="/create-note"><button class="create-event-btn1">Написать заметку</button></a>
+      </div>
+      <div class="wrapper2">
+        <input type="text" id="search-box" name="search-box">
+      </div>
+    <div class="wrapper3">
+        <button class="create-event-btn2">Поиск</button>
     </div>
+</div>
 
-    <div class="note">
-        <h2>Мои заметки</h2>
-            <a href="#">
-                <div class="red">
-                    <p><strong><span>05.11.21</span> Danger!</strong> Some text... <div class="date"></div></p>
-                </div>
-            </a>
-            <a href="#">
-                <div class="green">
-                <p><strong>Success!</strong> Some text...</p>
-                </div>
-            </a>
-            <a href="#">        
-                <div class="blue">
-                <p><strong>Info!</strong> Some text...</p>
-                </div>
-            </a>
-    </div>
+<div class="notes">
+    <h2>Мои заметки</h2>
+        {%for note in notes%}
+        <a href="/edit-note?id={{note.id}}">
+            <div class="note1" style="background-color: {{note.color}};">
+                <p><strong>{{note.lastModifiedTime|prettyfy_datetime}}</strong>  {{note.name}}</p>
+            </div>
+        </a>
+        {%endfor%}
+</div>
 {%endblock%}
 
 

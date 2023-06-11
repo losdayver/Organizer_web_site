@@ -13,5 +13,5 @@ class Note(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=40)
     text = models.TextField()
-    color = models.TextField(max_length=10)
+    color = models.TextField(max_length=7)
     lastModifiedTime = models.DateTimeField(auto_now=True)

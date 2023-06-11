@@ -12,10 +12,15 @@
     <div class="wrapper">
         <div class="wrapper1">
             <a href="/create-event"><button class="create-event-btn1">Создать событие</button></a>
-        </div>
-        <div class="wrapper2">
-            <a href="#"><button class="create-event-btn2">Фильтр по тегам</button></a>
-        </div>
+          </div>
+
+        <form method='get'>
+            <div class="wrapper2">
+                <input type="hidden" name="search_bar_contents" value="{{search_bar_contents}}">
+                <button class="create-event-btn2">Фильтр по тегам</button>
+                <input type="text" id="search-box" name="search-box">
+            </div>
+        </form>
     </div>
 
 <div class="calendar">
