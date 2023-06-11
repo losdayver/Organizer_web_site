@@ -80,7 +80,7 @@ def calendar(request):
 
         print(data) 
 
-    return render (request, 'main/calendar_isolated.html', {'data': data, 
+    return render (request, 'main/calendar.html', {'data': data, 
                                                             'year_month': f'{year} {month}', 
                                                             'month_name': month_names[month],
                                                             'year': year})
@@ -118,17 +118,14 @@ def create_event(request):
         name = request.POST.get('name')
         text = request.POST.get('text')
         startTime = request.POST.get('startTime')
+        tag = request.POST.get('tag')
 
         e = Event()
-
-        print(name)
-        print(text)
-        print(startTime)
-        print(request.user)
 
         e.name = name
         e.text = text
         e.startTime = startTime
+        e.tag = tag
         e.author = request.user
 
         e.save()
@@ -137,31 +134,39 @@ def create_event(request):
 
     return render(request, 'main/create_event.html') 
 
+@login_required(login_url='/login')
 def edit_event(request):
     id = request.GET.get('id')
 
     if request.method == 'POST':
-        name = request.POST.get('name')
-        text = request.POST.get('text')
-        startTime = request.POST.get('startTime')
+        form_id = request.POST.get('form_id')
 
-        e = Event()
+        if form_id == 'edit':
+            name = request.POST.get('name')
+            text = request.POST.get('text')
+            startTime = request.POST.get('startTime')
+            tag = request.POST.get('tag')
 
-        print(name)
-        print(text)
-        print(startTime)
-        print(request.user)
+            e = Event()
 
-        e.id = id
-        e.name = name
-        e.text = text
-        e.startTime = startTime
-        e.author = request.user
+            e.id = id
+            e.name = name
+            e.text = text
+            e.startTime = startTime
+            e.tag = tag
+            e.author = request.user
 
-        e.save()
+            e.save()
 
-        return redirect('/calendar')
+            return redirect('/calendar')
+        elif form_id == 'delete':
+            event = Event.objects.filter(id=id)[0]
+            event.delete()
+            return redirect('/calendar')
 
     event = Event.objects.filter(id=id)[0]
 
     return render(request, 'main/edit_event.html', {'event':event})
+
+def notes(request):
+    return render(request, 'main/notes.html', {})

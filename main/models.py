@@ -7,6 +7,7 @@ class Event(models.Model):
     name = models.CharField(max_length=40)
     text = models.TextField()
     startTime = models.DateTimeField()
+    tag = models.CharField(max_length=40)
 
 class Note(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
