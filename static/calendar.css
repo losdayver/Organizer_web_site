@@ -2,10 +2,11 @@
  * Календарь
  */
 .calendar{
-    font-family: Calibri;
+    font-family: 'Noto Sans', sans-serif;
     font-weight: bold;
     margin-left: 0;
     margin-right: 0;
+	background-color: aqua;
 }
 .month{
     text-align: center;
@@ -22,7 +23,7 @@ table, th, td{
     font-size: 27px;
     border-collapse: collapse;
     border:2px solid #61898B;
-    font-family: Elaphant;
+    font-family: 'Noto Sans', sans-serif;
 }
 tr, th, td{
     padding: 5px;
@@ -112,7 +113,7 @@ td:hover{
 	margin-bottom: 10px;
   }
 
-.wrapper1 {
+.wrapper1{
 	position: relative;
 	right: 0;
 	height: 30px;
@@ -122,7 +123,7 @@ td:hover{
 	padding: 5px;
   }
 
-.wrapper2 {
+.wrapper2{
 	position: relative;
 	left: 0;
 	height: 30px;

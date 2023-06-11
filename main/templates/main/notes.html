@@ -1,0 +1,39 @@
+{% extends 'main/index.html' %}
+
+{%load static%}
+
+{%block styles%}
+    <link rel="stylesheet" type="text/css" href="{% static 'notes.css' %}">
+{%endblock%}
+
+{%block content%}
+    <div class="wrapper">
+        <div class="wrapper1">
+            <button class="create-note-btn1">Написать заметку</button>
+          </div>
+        <div class="wrapper2">
+            <button class="create-note-btn2">Фильтр по тегам</button>
+          </div>
+    </div>
+
+    <div class="note">
+        <h2>Мои заметки</h2>
+            <a href="#">
+                <div class="red">
+                    <p><strong><span>05.11.21</span> Danger!</strong> Some text... <div class="date"></div></p>
+                </div>
+            </a>
+            <a href="#">
+                <div class="green">
+                <p><strong>Success!</strong> Some text...</p>
+                </div>
+            </a>
+            <a href="#">        
+                <div class="blue">
+                <p><strong>Info!</strong> Some text...</p>
+                </div>
+            </a>
+    </div>
+{%endblock%}
+
+

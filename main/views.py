@@ -86,7 +86,7 @@ def calendar(request):
                                                             'year': year})
 
 def testing(request):
-    return render(request, 'main/create_event.html', {})
+    return render(request, 'main/notes.html', {})
 
 @login_required(login_url='/login')
 def profile(request):
