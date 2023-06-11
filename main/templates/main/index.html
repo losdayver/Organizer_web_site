@@ -22,11 +22,6 @@
 	<!-- Стили сайта -->
 
     <link rel="stylesheet" type="text/css" href="{% static 'header.css' %}">
-
-	<link rel="stylesheet" type="text/css" href="{% static 'notes.css' %}">
-
-	{%block styles%}
-	{%endblock%}
 </head>
 <body>
 
@@ -41,6 +36,9 @@
 				</ul>
 	    </div>
 	</nav>
+
+	{%block styles%}
+	{%endblock%}
 
 	<div class="content">
     {%block content%}

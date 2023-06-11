@@ -69,25 +69,11 @@ td:hover{
 	border-color: transparent;
 	margin-top: 10px;
 	margin-bottom: 10px; 
+	text-decoration: none;
   }
 .date_num p{
     margin-top: 1px; 
 }
-/* .date_num, .event{
-	margin: 5px 0;
-}
-
-.event {
-	padding: 3px;
-	position: relative;
-	border-radius: 5%;
-	font-size: 15px;
-	text-align: left;
-	word-wrap: break-word;
-	box-sizing: border-box;
-	border-style: solid;
-	border-color: transparent;
-} */
 
 .event:hover{
 	border-color: #61898B;
