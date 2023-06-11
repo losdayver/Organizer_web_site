@@ -1,16 +1,19 @@
 h2{
-    font-family: Calibri;
+    font-family: 'Noto Sans', sans-serif;
     font-weight: bold;
     text-align: center;
     font-size: 80px;
     color: #61898B;
-}
+	margin-top: 30px;
+	margin-bottom: 30px;}
 
-a {
+a{
 	text-decoration: none;
   }
 
-.red {
+
+
+.note1 {
 	color: #000;
     font-size: 20px;
     width: 1200px; 
@@ -18,11 +21,11 @@ a {
     border-radius: 30px;
     margin-bottom: 15px;
     padding: 4px 12px;
-    background-color: #F7D0D0;
-    border-left: 6px solid #C5A9A9;
+    background-color: #f7ebeb;
+	border-bottom: 5px solid #C5A9A9;
 }
 
-.green {
+.note2 {
 
 	color: #000;
     font-size: 20px;
@@ -31,11 +34,11 @@ a {
     border-radius: 30px;
     margin-bottom: 15px;
     padding: 4px 12px;
-    background-color: #DEEFD7;
-    border-left: 6px solid #AABDA2;
+    background-color: #e6f8df;
+    border-bottom: 5px  solid #AABDA2;
 }
 
-.blue {
+.note3 {
 	color: #000;
     font-size: 20px;
     width: 1200px; /* задаем фиксированную ширину блока */
@@ -43,8 +46,8 @@ a {
     border-radius: 30px;
     margin-bottom: 15px;
     padding: 4px 12px;
-    background-color: #DCE6F2;
-    border-left: 6px solid #ABBBCD;
+    background-color: #ecf4fd;
+    border-bottom: 5px  solid #ABBBCD;
 }
 
 .red:hover,
@@ -59,31 +62,27 @@ a {
 .wrapper {
 	display: flex;
 	align-items: center;
-	margin-top: 5px;
+	margin-top: 20px;
 	margin-bottom: 10px;
-  }
-
-.wrapper1 {
-	position: relative;
-	right: 0;
-	height: 30px;
-	display: flex;
-	justify-content: flex-end;
-	align-items: flex-start;
-	padding: 5px;
-  }
-
-.wrapper2 {
-	position: relative;
-	left: 0;
-	height: 30px;
-	display: flex;
-	justify-content: flex-end;
-	align-items: flex-start;
-	padding: 5px;
+	justify-content: center;
   }
   
-  .create-note-btn1 {
+  #search-box {
+	border: none;
+	outline: none;
+	font-family: 'Noto Sans', sans-serif;
+	margin-left: auto;
+	margin-right: 20px;
+	background-color: rgb(255, 255, 255);
+	box-shadow: inset 0 0 0 2px #a7babb;
+	color: #61898B;
+	padding: 15px 40px;
+	border-radius: 30px;
+	cursor: pointer;
+	font-size: 20px;
+  }
+  
+  .create-event-btn1 {
 	white-space: nowrap;
 	background-color: #99B9BB;
 	box-shadow: inset 0 0 0 2px #61898B;
@@ -92,14 +91,13 @@ a {
 	border: none;
 	border-radius: 30px;
 	cursor: pointer;
-	margin-top: 5px;
+	margin-left: auto;
 	font-size: 22px;
+	margin-right: 20px;
   }
-  .create-note-btn2 {
-	margin-left: 1110px;
+  
+  .create-event-btn2 {
 	white-space: nowrap;
-	position:absolute;
-    left: 0px;
 	background-color: rgb(255, 255, 255);
 	box-shadow: inset 0 0 0 2px #61898B;
 	color: #61898B;
@@ -107,13 +105,25 @@ a {
 	border: none;
 	border-radius: 30px;
 	cursor: pointer;
-	margin-top: 5px;
 	font-size: 22px;
   }
-  .create-note-btn1:hover {
+
+  .create-event-btn1:hover {
 	background-color: #61898B;
   }
   
-  .create-note-btn2:hover {
-	background-color: #E6F1F7;
+  .create-event-btn2:hover {
+	background-color: #E6F1F7}
+  
+  input[type="text"] {
+	margin-right: 20px;
+	padding: 15px 40px;
+	border-radius: 30px;
+	font-size: 20px;
+	box-shadow: inset 0 0 0 2px #61898B;
+	border: none;
+	outline: none;
+	color: #61898B;
+	background-color: rgb(255, 255, 255);
   }
+  
