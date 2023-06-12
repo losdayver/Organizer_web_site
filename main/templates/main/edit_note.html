@@ -12,6 +12,7 @@
 
 <form method="post">
     {%csrf_token%}
+    <input type="hidden" name="form_id" value="edit">
     <label for="name">Название заметки:</label>
     <input type="text" id="name" name="name" value="{{note.name}}" required>
 
@@ -23,6 +24,14 @@
 
     <div>
     <input type="submit" value="Редактировать заметку">
+    </div>
+</form>
+
+<form method="post">
+    {%csrf_token%}
+    <input type="hidden" name="form_id" value="delete">
+    <div>
+    <input type="submit" value="Удалить">
     </div>
 </form>
 {%endblock%}

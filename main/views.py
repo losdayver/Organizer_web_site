@@ -72,7 +72,8 @@ def calendar(request):
         for i in range(num_days):
             data.append({ 'date_num': i + 1, 'events': [] })
 
-        objects = Event.objects.filter(Q(startTime__gte=start_date) & Q(startTime__lte=end_date))
+        objects = Event.objects.filter(author=request.user)
+        objects = objects.filter(Q(startTime__gte=start_date) & Q(startTime__lte=end_date))
 
         try:
             tag = request.GET.get('tag')
@@ -111,14 +112,7 @@ def testing(request):
 
 @login_required(login_url='/login')
 def profile(request):
-    if request.method == 'POST':
-        event_id = request.POST.get("event-id")
-        event = Event.objects.filter(id=event_id).first()
-        event.delete()
-
-    events_list = Event.objects.filter(author=request.user)
-    
-    return render(request, 'main/profile.html', {'events_list':events_list})
+    return render(request, 'main/profile.html')
 
 def sing_up(request): 
     if request.method == 'POST':
@@ -191,9 +185,9 @@ def edit_event(request):
 
 @login_required(login_url='/login')
 def notes(request):
-    objects = Note.objects.filter(author=request.user)
+    notes = Note.objects.filter(author=request.user).order_by('-lastModifiedTime')
 
-    return render(request, 'main/notes.html', {'notes':objects})
+    return render(request, 'main/notes.html', {'notes':notes})
 
 @login_required(login_url='/login')
 def create_note(request):
@@ -220,21 +214,29 @@ def edit_note(request):
     id = request.GET.get('id')
 
     if request.method == 'POST':
-        name = request.POST.get('name')
-        text = request.POST.get('text')
-        color = request.POST.get('color')
+        form_id = request.POST.get('form_id')
 
-        n = Note()
+        if form_id == 'edit':
+            name = request.POST.get('name')
+            text = request.POST.get('text')
+            color = request.POST.get('color')
 
-        n.id = id
-        n.name = name
-        n.text = text
-        n.author = request.user
-        n.color = color
+            n = Note()
 
-        n.save()
+            n.id = id
+            n.name = name
+            n.text = text
+            n.author = request.user
+            n.color = color
+            n.lastModifiedTime = datetime.now()
 
-        return redirect('/notes')
+            n.save()
+
+            return redirect('/notes')
+        if form_id == 'delete':
+            note = Note.objects.filter(id=id)[0]
+            note.delete()
+            return redirect('/notes')
 
     note = Note.objects.filter(id=id)[0]
     return render(request, 'main/edit_note.html', {'note':note}) 
