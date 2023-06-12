@@ -1,0 +1,87 @@
+{% extends 'main/index.html' %}
+{% load main_extras %}
+{%load static%}
+
+{%block styles%}
+    <link rel="stylesheet" type="text/css" href="{% static 'tasks.css' %}">
+{%endblock%}
+
+{%block content%}
+<div class="create-task">
+                <div class="create-task1">
+                    <a href="/create-task/"><button class="create-task-btn1">Добавить задачу</button></a>
+                  </div>
+                <div class="create-task2">
+                    <form method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="form_id" value="delete_done">
+                    <button class="create-task-btn2" onclick="submitForm()">Удалить завершенные задачи</button>
+                    </form>
+              </div>
+            </div>
+<div class="mn">
+    <h2>Список задач</h2></div>
+
+    <div class="tasks">
+    <table>
+        <tr>
+          <th>Запланировано</th>
+          <th>В процессе</th>
+          <th>Сделано</th>
+        </tr>
+        {%for line in task_dict_list%}
+        <tr>
+            <td>
+                {%if line.task_1 != None%}
+                    {{line.task_1.name}}
+                    <form method="post" class="arrows">
+                        {% csrf_token %}
+                        <input type="hidden" name="form_id" value="move_task">
+                        <input type="hidden" name="task_id" value="{{line.task_1.id}}">
+                        <input type="hidden" name="action" value="move_right">
+                        <button onclick="submitForm()" class="arrows">&#8250;</button>
+                    </form>
+                {%endif%}
+            </td>
+            <td>
+                {%if line.task_2 != None%}
+                    <form method="post" class="arrows">
+                        {% csrf_token %}
+                        <input type="hidden" name="form_id" value="move_task">
+                        <input type="hidden" name="task_id" value="{{line.task_2.id}}">
+                        <input type="hidden" name="action" value="move_left">
+                        <button onclick="submitForm()" class="arrows">&#8249;</button>
+                    </form>
+                    {{line.task_2.name}}
+                    <form method="post" class="arrows">
+                        {% csrf_token %}
+                        <input type="hidden" name="form_id" value="move_task">
+                        <input type="hidden" name="task_id" value="{{line.task_2.id}}">
+                        <input type="hidden" name="action" value="move_right">
+                        <button onclick="submitForm()" class="arrows">&#8250;</button>
+                    </form>
+                {%endif%}
+            </td>
+            <td>
+                {%if line.task_3 != None%}
+                    <form method="post" class="arrows">
+                        {% csrf_token %}
+                        <input type="hidden" name="form_id" value="move_task">
+                        <input type="hidden" name="task_id" value="{{line.task_3.id}}">
+                        <input type="hidden" name="action" value="move_left">
+                        <button onclick="submitForm()" class="arrows">&#8249;</button>
+                    </form>
+                    {{line.task_3.name}}
+                {%endif%}
+            </td>
+        </tr>
+        {%endfor%}
+      </table>
+  </div>
+
+<script>
+function submitForm() {
+    document.getElementById('myForm').submit();
+}
+</script>
+{%endblock%}

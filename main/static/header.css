@@ -1,4 +1,5 @@
-html, body{
+html,
+body {
 	height: 100%;
 	padding: 0;
 	margin: 0;
@@ -7,39 +8,39 @@ html, body{
 
 body {
 	position: relative;
-	
+
 	font-size: 16px;
 	line-height: 1.4;
 	min-width: 320px;
 	overflow-x: hidden;
 }
 
-.navbar{
+.navbar {
 	width: 100%;
 	height: 70px;
 	background-color: #61898B;
-	box-shadow: 0 4px 10px rgba(0,  0,0,.1);
+	box-shadow: 0 4px 10px rgba(0, 0, 0, .1);
 }
 
-.navbar .container{
+.navbar .container {
 	height: inherit;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 }
 
-.navbar-menu{
+.navbar-menu {
 	list-style-type: none;
 	padding-left: 0;
 	margin-bottom: 0;
 	margin: 60px;
 }
 
-.navbar-menu li{
+.navbar-menu li {
 	display: inline-block;
 }
 
-.navbar-menu li a{
+.navbar-menu li a {
 	font-weight: 900;
 	display: inline-block;
 	color: #ffffff;
@@ -50,11 +51,11 @@ body {
 	transition: all .07s ease-in-out;
 }
 
-.navbar-menu li a:hover{
+.navbar-menu li a:hover {
 	opacity: 1;
 }
 
-.navbar-brand{
+.navbar-brand {
 	font-weight: 900;
 	font-size: 26px;
 	text-decoration: none;
@@ -67,6 +68,6 @@ body {
 
 .content {
 	height: 100%;
-	margin:0;
+	margin: 0;
 	padding: 2% 7%;
 }
