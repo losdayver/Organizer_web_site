@@ -1,81 +1,92 @@
 /**
  * Календарь
  */
-.calendar{
-    font-family: 'Noto Sans', sans-serif;
-    font-weight: bold;
-    margin-left: 0;
-    margin-right: 0;
-}
-.month{
-	margin-top: 22px;
-    text-align: center;
-    background: white;
-    font-size: 80px;
-    letter-spacing: 1px;
-    color: #61898B;
+.calendar {
+	font-family: 'Noto Sans', sans-serif;
+	font-weight: bold;
+	margin-left: 0;
+	margin-right: 0;
 }
 
-.calendar table, .calendar th, .calendar td{
+.month {
+	margin-top: 22px;
+	text-align: center;
+	background: white;
+	font-size: 80px;
+	letter-spacing: 1px;
+	color: #61898B;
+}
+
+.calendar table,
+.calendar th,
+.calendar td {
 	width: 100%;
-    table-layout: fixed;
-    text-align: center;
-    font-size: 27px;
-    border-collapse: collapse;
-    border:2px solid #61898B;
-    font-family: 'Noto Sans', sans-serif;
+	table-layout: fixed;
+	text-align: center;
+	font-size: 27px;
+	border-collapse: collapse;
+	border: 2px solid #61898B;
+	font-family: 'Noto Sans', sans-serif;
 }
-.calendar tr, .calendar th, .calendar td{
-    padding: 5px;
+
+.calendar tr,
+.calendar th,
+.calendar td {
+	padding: 5px;
 }
-.calendar th{
-    background: #99B9BB;
-    color: white;
-    font-family: arial black;
+
+.calendar th {
+	background: #99B9BB;
+	color: white;
+	font-family: arial black;
 }
-.calendar td{
+
+.calendar td {
 	position: relative;
-    background: #ffffff;
-    color: #61898B;
+	background: #ffffff;
+	color: #61898B;
 	height: auto;
 	padding-bottom: 22px;
 	height: 50px;
 }
-.calendar td:hover{
-    background: #E6F1F7;
+
+.calendar td:hover {
+	background: #E6F1F7;
 }
+
 .calendar .date_num {
-	position: absolute; 
+	position: absolute;
 	top: 5px;
-	left: 5px; 
+	left: 5px;
 	font-size: 20px;
-	font-weight: bold; 
+	font-weight: bold;
 	margin-top: 5px 0;
-  }
-  
+}
+
 .calendar .event {
 	font-family: 'Noto Sans', sans-serif;
-	position:relative; 
-	width: calc(100% - 20px); 
-	top: 22px; 
-	left: 10px; 
+	position: relative;
+	width: calc(100% - 20px);
+	top: 22px;
+	left: 10px;
 	padding: 5px;
 	font-size: 15px;
-	border-radius: 5px; 
+	border-radius: 5px;
 	text-align: left;
 	word-wrap: break-word;
 	box-sizing: border-box;
 	border-style: solid;
 	border-color: transparent;
 	margin-top: 10px;
-	margin-bottom: 10px; 
+	margin-bottom: 10px;
 	text-decoration: none;
-  }
-.date_num p{
-    margin-top: 1px; 
 }
 
-.calendar .event:hover{
+.date_num p {
+	margin-top: 1px;
+}
+
+.calendar .event:hover {
 	border-color: #61898B;
 }
 
@@ -84,24 +95,24 @@
 	text-decoration: none;
 	display: inline-block;
 	padding: 20px 20px;
-	color:  #99B9BB;
-  }
-  
-  .arrows:hover {
-	color:  #61898B;
-  }
+	color: #99B9BB;
+}
+
+.arrows:hover {
+	color: #61898B;
+}
 
 /* кнопки создания события и фильтрации тегов*/
 
-  .wrapper {
+.wrapper {
 	display: flex;
 	align-items: center;
 	margin-top: 20px;
 	margin-bottom: 10px;
 	justify-content: center;
-  }
-  
-  #search-box {
+}
+
+#search-box {
 	border: none;
 	outline: none;
 	font-family: 'Noto Sans', sans-serif;
@@ -114,9 +125,9 @@
 	border-radius: 30px;
 	cursor: pointer;
 	font-size: 20px;
-  }
-  
-  .create-event-btn1 {
+}
+
+.create-event-btn1 {
 	white-space: nowrap;
 	background-color: #99B9BB;
 	box-shadow: inset 0 0 0 2px #61898B;
@@ -128,9 +139,9 @@
 	margin-left: auto;
 	font-size: 22px;
 	margin-right: 20px;
-  }
-  
-  .create-event-btn2 {
+}
+
+.create-event-btn2 {
 	white-space: nowrap;
 	background-color: rgb(255, 255, 255);
 	box-shadow: inset 0 0 0 2px #61898B;
@@ -140,16 +151,17 @@
 	border-radius: 30px;
 	cursor: pointer;
 	font-size: 22px;
-  }
+}
 
-  .create-event-btn1:hover {
+.create-event-btn1:hover {
 	background-color: #61898B;
-  }
-  
-  .create-event-btn2:hover {
-	background-color: #E6F1F7}
-  
-  input[type="text"] {
+}
+
+.create-event-btn2:hover {
+	background-color: #E6F1F7
+}
+
+input[type="text"] {
 	margin-right: 20px;
 	padding: 15px 40px;
 	border-radius: 30px;
@@ -159,5 +171,4 @@
 	outline: none;
 	color: #61898B;
 	background-color: rgb(255, 255, 255);
-  }
-  
+}

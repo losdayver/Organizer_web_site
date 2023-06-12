@@ -1,60 +1,65 @@
-h2{
-    font-family: 'Noto Sans', sans-serif;
-    font-weight: bold;
-    text-align: center;
-    font-size: 80px;
-    color: #61898B;
+h2 {
+	font-family: 'Noto Sans', sans-serif;
+	font-weight: bold;
+	text-align: center;
+	font-size: 80px;
+	color: #61898B;
 	margin-top: 30px;
-	margin-bottom: 30px;}
+	margin-bottom: 30px;
+}
 
-a{
+a {
 	text-decoration: none;
-  }
+}
 
 
 
 .note1 {
 	color: #000;
-    font-size: 20px;
-    width: 1200px; 
-    margin: 0 auto;
-    border-radius: 30px;
-    margin-bottom: 15px;
-    padding: 4px 12px;
-    background-color: #f7ebeb;
+	font-size: 20px;
+	width: 1200px;
+	margin: 0 auto;
+	border-radius: 30px;
+	margin-bottom: 15px;
+	padding: 4px 12px;
+	background-color: #f7ebeb;
 	border-bottom: 5px solid #C5A9A9;
 }
 
 .note2 {
 
 	color: #000;
-    font-size: 20px;
-    width: 1200px; /* задаем фиксированную ширину блока */
-    margin: 0 auto; /* добавляем margin со значением auto */
-    border-radius: 30px;
-    margin-bottom: 15px;
-    padding: 4px 12px;
-    background-color: #e6f8df;
-    border-bottom: 5px  solid #AABDA2;
+	font-size: 20px;
+	width: 1200px;
+	/* задаем фиксированную ширину блока */
+	margin: 0 auto;
+	/* добавляем margin со значением auto */
+	border-radius: 30px;
+	margin-bottom: 15px;
+	padding: 4px 12px;
+	background-color: #e6f8df;
+	border-bottom: 5px solid #AABDA2;
 }
 
 .note3 {
 	color: #000;
-    font-size: 20px;
-    width: 1200px; /* задаем фиксированную ширину блока */
-    margin: 0 auto; /* добавляем margin со значением auto */
-    border-radius: 30px;
-    margin-bottom: 15px;
-    padding: 4px 12px;
-    background-color: #ecf4fd;
-    border-bottom: 5px  solid #ABBBCD;
+	font-size: 20px;
+	width: 1200px;
+	/* задаем фиксированную ширину блока */
+	margin: 0 auto;
+	/* добавляем margin со значением auto */
+	border-radius: 30px;
+	margin-bottom: 15px;
+	padding: 4px 12px;
+	background-color: #ecf4fd;
+	border-bottom: 5px solid #ABBBCD;
 }
 
 .red:hover,
 .green:hover,
 .blue:hover {
-  opacity: 0.8;
-  transition: all .08s ease-in-out;
+	opacity: 0.8;
+	transition: all .08s ease-in-out;
 }
 
 /* кнопки написания заметки и фильтрации тегов*/
@@ -65,9 +70,9 @@ a{
 	margin-top: 20px;
 	margin-bottom: 10px;
 	justify-content: center;
-  }
-  
-  #search-box {
+}
+
+#search-box {
 	border: none;
 	outline: none;
 	font-family: 'Noto Sans', sans-serif;
@@ -80,9 +85,9 @@ a{
 	border-radius: 30px;
 	cursor: pointer;
 	font-size: 20px;
-  }
-  
-  .create-event-btn1 {
+}
+
+.create-event-btn1 {
 	white-space: nowrap;
 	background-color: #99B9BB;
 	box-shadow: inset 0 0 0 2px #61898B;
@@ -94,9 +99,9 @@ a{
 	margin-left: auto;
 	font-size: 22px;
 	margin-right: 20px;
-  }
-  
-  .create-event-btn2 {
+}
+
+.create-event-btn2 {
 	white-space: nowrap;
 	background-color: rgb(255, 255, 255);
 	box-shadow: inset 0 0 0 2px #61898B;
@@ -106,16 +111,17 @@ a{
 	border-radius: 30px;
 	cursor: pointer;
 	font-size: 22px;
-  }
+}
 
-  .create-event-btn1:hover {
+.create-event-btn1:hover {
 	background-color: #61898B;
-  }
-  
-  .create-event-btn2:hover {
-	background-color: #E6F1F7}
-  
-  input[type="text"] {
+}
+
+.create-event-btn2:hover {
+	background-color: #E6F1F7
+}
+
+input[type="text"] {
 	margin-right: 20px;
 	padding: 15px 40px;
 	border-radius: 30px;
@@ -125,5 +131,4 @@ a{
 	outline: none;
 	color: #61898B;
 	background-color: rgb(255, 255, 255);
-  }
-  
+}
