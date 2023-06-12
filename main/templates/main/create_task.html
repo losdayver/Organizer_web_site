@@ -1,0 +1,29 @@
+{% extends 'main/index.html' %}
+{% load main_extras %}
+{%load static%}
+
+{%block styles%}
+    <link rel="stylesheet" type="text/css" href="{% static 'register.css' %}">
+{%endblock%}
+
+{%block content%}
+<h2>Добавление задачи</h2>
+
+<form method="post">
+  {% csrf_token %}
+  <label for="name">Название задачи:</label>
+  <input type="text" id="name" name="name" required>
+  
+  <label for="status-task">Выберете статус задачи:</label>
+  <input list="status" name="status-task">
+  <div>
+    <datalist id="status">
+    <option value="Запланировано">
+    <option value="В процессе">
+    <option value="Сделано">
+    </datalist>
+  </div>
+  
+  <input type="submit" value="Добавить задачу">
+</form>
+{%endblock%}

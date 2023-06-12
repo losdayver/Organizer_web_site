@@ -16,4 +16,7 @@ urlpatterns = [
     path('notes/', views.notes, name='notes'),
     path('edit-note/', views.edit_note, name='edit note'),
     path('create-note/', views.create_note, name='create note'),
+
+    path('tasks/', views.tasks, name='tasks'),
+    path('create-task/', views.create_task, name='create task'),
 ]

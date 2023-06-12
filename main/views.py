@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .forms import RegistrationForm, EventForm
-from .models import Event, Note
+from .models import Event, Note, Task
 from django.contrib.auth import login, logout, authenticate
 
 from django.db.models import Q
@@ -10,7 +10,6 @@ from calendar import monthrange, weekday
 from django.forms.models import model_to_dict
 
 import random
-
 
 month_names = {
     1: 'Январь',
@@ -211,6 +210,8 @@ def create_note(request):
 
 @login_required(login_url='/login')
 def edit_note(request):
+
+    
     id = request.GET.get('id')
 
     if request.method == 'POST':
@@ -240,3 +241,77 @@ def edit_note(request):
 
     note = Note.objects.filter(id=id)[0]
     return render(request, 'main/edit_note.html', {'note':note}) 
+
+@login_required(login_url='/login')
+def tasks(request):
+    if request.method == 'POST':
+        form_id = request.POST.get('form_id')
+        
+        if form_id == 'move_task':
+            task_id = request.POST.get('task_id')
+            action = request.POST.get('action')
+
+            task = Task.objects.filter(id=task_id)[0]
+
+            if action == 'move_right': task.status += 1
+            elif action == 'move_left': task.status -= 1
+
+            task.save()
+        elif form_id == 'delete_done':
+            tasks_done = Task.objects.filter(author=request.user, status=3)
+
+            print(tasks_done)
+
+            for task in tasks_done:
+                task.delete()
+
+            
+
+    tasks_1 = Task.objects.filter(author=request.user, status=1)
+    tasks_2 = Task.objects.filter(author=request.user, status=2)
+    tasks_3 = Task.objects.filter(author=request.user, status=3)
+
+    max_query_length = max(len(tasks_1), len(tasks_2), len(tasks_3))
+
+    task_dict_list = []
+
+    for i in range(max_query_length):
+        try: task_1 = tasks_1[i]
+        except: task_1 = None
+
+        try: task_2 = tasks_2[i]
+        except: task_2 = None
+
+        try: task_3 = tasks_3[i]
+        except: task_3 = None
+
+        task_dict_list.append({'task_1':task_1, 'task_2':task_2, 'task_3':task_3})
+
+    return render(request, 'main/tasks.html', {'task_dict_list':task_dict_list})
+
+@login_required(login_url='/login')
+def create_task(request):
+    if request.method == 'POST':
+
+        name = request.POST.get('name')
+        status = request.POST.get('status-task')
+        
+        status_id = 1
+        if status == 'Запланировано':
+            status_id = 1
+        elif status == 'В процессе':
+            status_id = 2
+        elif status == 'Сделано':
+            status_id = 3
+
+        t = Task()
+
+        t.name = name
+        t.author = request.user
+        t.status = status_id
+
+        t.save()
+
+        return redirect('/tasks')
+
+    return render(request, 'main/create_task.html')

@@ -15,3 +15,8 @@ class Note(models.Model):
     text = models.TextField()
     color = models.TextField(max_length=7)
     lastModifiedTime = models.DateTimeField(auto_now=True)
+
+class Task(models.Model):
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    name = models.CharField(max_length=40)
+    status = models.SmallIntegerField()
