@@ -52,7 +52,7 @@
 
                 {%for event in data_cell|get_value_from_dict:'events'%}
                     <a href="/edit-event?id={{event|get_value_from_dict:'event_id'}}">
-                        <div class="event" style="background-color: {{event|get_value_from_dict:'color'}};">
+                        <div class="event" style="background-color: {{event|get_value_from_dict:'color'}}70;">
                             {{event|get_value_from_dict:'name'}}
                         </div>
                     </a>

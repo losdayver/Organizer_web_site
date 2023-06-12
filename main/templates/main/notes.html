@@ -23,7 +23,7 @@
     <h2>Мои заметки</h2>
         {%for note in notes%}
         <a href="/edit-note?id={{note.id}}">
-            <div class="note1" style="background-color: {{note.color}};">
+            <div class="note1" style="background-color: {{note.color}}70;">
                 <p><strong>{{note.lastModifiedTime|prettyfy_datetime}}</strong>  {{note.name}}</p>
             </div>
         </a>

@@ -7,29 +7,23 @@
 {%endblock%}
 
 {%block content%}
-    <h2>Изменить событие</h2>
+    <h2>Создать событие</h2>
 
     <form method="post">
         {%csrf_token%}
-        <input type="hidden" name="form_id" value="edit">
 
         <label for="name">Название события:</label>
-        <input type="text" id="name" name="name" value={{event.name}} required>
+        <input type="text" id="name" name="name" required>
 
         <label for="text">Описание события:</label>
-        <textarea id="text" name="text" required>{{event.text}}</textarea>
+        <textarea id="text" name="text" required></textarea>
 
         <label for="startTime">Дата и время начала:</label>
-        <input type="datetime-local" id="startTime" name="startTime" value={{event.startTime}} required>
+        <input type="datetime-local" id="startTime" name="startTime" required>
 
         <label for="tag">Тег:</label>
-        <input type="text" id="tag" name="tag" value={{event.tag}} required>
+        <input type="text" id="tag" name="tag" required>
 
-        <input type="submit" value="Изменить событие">
-    </form>
-    <form method="post">
-        {%csrf_token%}
-        <input type="hidden" name="form_id" value="delete">
-        <input type="submit" value="Удалить событие">
+        <input type="submit" value="Создать событие">
     </form>
 {%endblock%}
