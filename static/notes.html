@@ -1,76 +1,78 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Notes</title>
-<!-- Bootstrap reboot (для сброса стилей) -->
-<link rel="stylesheet" href="libs/bootstrap-reboot.min.css">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Заметки</title>
+        <!-- Bootstrap reboot (для сброса стилей) -->
+        <link rel="stylesheet" href="libs/bootstrap-reboot.min.css">
 
-<!-- Bootstrap сетка -->
-<link rel="stylesheet" href="libs/bootstrap-grid.min.css">
+        <!-- Bootstrap сетка -->
+        <link rel="stylesheet" href="libs/bootstrap-grid.min.css">
 
-<link rel="stylesheet" href="./css/styles.css">
+        <link rel="stylesheet" href="./css/styles.css">
 
-<!-- Шрифты с Google Fonts -->
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+        <!-- Шрифты с Google Fonts -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap"
+            rel="stylesheet">
 
-<link rel="stylesheet" href="css/notes.css">
-<link rel="stylesheet" type="text/css" href="notes.css">
+        <link rel="stylesheet" href="css/notes.css">
+        <link rel="stylesheet" type="text/css" href="notes.css">
 
-<link rel="stylesheet" href="css/header.css">
-<link rel="stylesheet" type="text/css" href="header.css">
+        <link rel="stylesheet" href="css/header.css">
+        <link rel="stylesheet" type="text/css" href="header.css">
 
-</head>
-<body>
-<!-- шапка -->
-    <nav class="navbar">
-		<div class="container">
-			<a href="#" class="navbar-brand">YOUR ORGANIZER</a>
-				<ul class="navbar-menu">
-					<li><a href="#">Home</a></li>
-					<li><a href="#">Register</a></li>	
-					<li><a href="#">Login</a></li>
-					<li><a href="#">Personal page</a></li>
-				</ul>
-	    </div>
-	</nav>
+    </head>
+    <body>
+        <!-- шапка -->
+        <nav class="navbar">
+            <div class="container">
+                <a href="#" class="navbar-brand">ВАШ ОРГАНАЙЗЕР</a>
+                <ul class="navbar-menu">
+                    <li><a href="#">Домой</a></li>
+                    <li><a href="#">Зарегистрироваться</a></li>
+                    <li><a href="#">Войти</a></li>
+                    <li><a href="#">Личная страница</a></li>
+                </ul>
+            </div>
+        </nav>
 
-<!-- заметки -->
-<div class="content">
-    <div class="wrapper">
-        <div class="wrapper1">
-            <button class="create-event-btn1">Написать заметку</button>
-          </div>
-          <div class="wrapper2">
-            <input type="text" id="search-box" name="search-box">
-          </div>
-        <div class="wrapper3">
-            <button class="create-event-btn2">Поиск</button>
+        <!-- заметки -->
+        <div class="content">
+            <div class="wrapper">
+                <div class="wrapper1">
+                    <button class="create-event-btn1">Написать заметку</button>
+                </div>
+                <div class="wrapper2">
+                    <input type="text" id="search-box" name="search-box">
+                </div>
+                <div class="wrapper3">
+                    <button class="create-event-btn2">Поиск</button>
+                </div>
+            </div>
+
+            <div class="note">
+                <h2>Мои заметки</h2>
+                <a href="#">
+                    <div class="note1">
+                        <p><strong><span>05.11.21</span> Danger!</strong> Some
+                            text... <div class="date"></div></p>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="note2">
+                        <p><strong><span>05.11.21</span> Success!</strong> Some
+                            text...</p>
+                    </div>
+                </a>
+                <a href="#">
+                    <div class="note3">
+                        <p><strong><span>05.11.21</span> Info!</strong> Some
+                            text...</p>
+                    </div>
+                </a>
+            </div>
         </div>
-    </div>
-
-    <div class="note">
-        <h2>Мои заметки</h2>
-            <a href="#">
-                <div class="note1">
-                    <p><strong><span>05.11.21</span> Danger!</strong> Some text... <div class="date"></div></p>
-                </div>
-            </a>
-            <a href="#">
-                <div class="note2">
-                <p><strong><span>05.11.21</span> Success!</strong> Some text...</p>
-                </div>
-            </a>
-            <a href="#">        
-                <div class="note3">
-                <p><strong><span>05.11.21</span> Info!</strong> Some text...</p>
-                </div> 
-            </a>
-    </div>
-</div>
-</body>
+    </body>
 </html>
-
-
-

@@ -1,212 +1,219 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Calendar</title>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Календарь</title>
 
-	
+        <!-- Bootstrap reboot (для сброса стилей) -->
+        <link rel="stylesheet" href="libs/bootstrap-reboot.min.css">
 
-	<!-- Bootstrap reboot (для сброса стилей) -->
-	<link rel="stylesheet" href="libs/bootstrap-reboot.min.css">
+        <!-- Bootstrap сетка -->
+        <link rel="stylesheet" href="libs/bootstrap-grid.min.css">
 
-	<!-- Bootstrap сетка -->
-	<link rel="stylesheet" href="libs/bootstrap-grid.min.css">
+        <link rel="stylesheet" href="./css/styles.css">
 
-	<link rel="stylesheet" href="./css/styles.css">
+        <!-- Шрифты с Google Fonts -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap"
+            rel="stylesheet">
 
-	<!-- Шрифты с Google Fonts -->
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+        <!-- Стили сайта -->
+        <link rel="stylesheet" href="css/calendar.css">
 
-	<!-- Стили сайта -->
-	<link rel="stylesheet" href="css/calendar.css">
+        <link rel="stylesheet" type="text/css" href="calendar.css">
 
-    <link rel="stylesheet" type="text/css" href="calendar.css">
+        <link rel="stylesheet" href="css/header.css">
 
-    <link rel="stylesheet" href="css/header.css">
+        <link rel="stylesheet" type="text/css" href="header.css">
+    </head>
+    <body>
 
-    <link rel="stylesheet" type="text/css" href="header.css">
-</head>
-<body>
-
-	<nav class="navbar">
-		<div class="container">
-			<a href="#" class="navbar-brand">YOUR ORGANIZER</a>
-				<ul class="navbar-menu">
-					<li><a href="#">Home</a></li>
-					<li><a href="#">Register</a></li>	
-					<li><a href="#">Login</a></li>
-					<li><a href="#">Personal page</a></li>
-				</ul>
-	    </div>
-	</nav>
-
-	<div class="content">
-    <div class="wrapper">
-        <div class="wrapper1">
-            <button class="create-event-btn1">Создать событие</button>
-          </div>
-          <div class="wrapper2">
-            <input type="text" id="search-box" name="search-box">
-          </div>
-        <div class="wrapper3">
-            <button class="create-event-btn2">Фильтр по тегам</button>
-        </div>
-    </div>
-
-        <div class="calendar">
-            <div class="month">
-                <a href="#" class="arrows">&#8249;</a>
-                <strong>Июнь</strong>
-                <strong>2023</strong>
-                <a href="#" class="arrows">&#8250;</a>
+        <nav class="navbar">
+            <div class="container">
+                <a href="#" class="navbar-brand">ВАШ ОРГАНАЙЗЕР</a>
+                <ul class="navbar-menu">
+                    <li><a href="#">Домой</a></li>
+                    <li><a href="#">Зарегистрироваться</a></li>
+                    <li><a href="#">Войти</a></li>
+                    <li><a href="#">Личная страница</a></li>
+                </ul>
             </div>
-            <table>
-                <tr>
-                    <th>Пн</th>
-                    <th>Вт</th>
-                    <th>Ср</th>
-                    <th>Чт</th>
-                    <th>Пт</th>
-                    <th>Сб</th>
-                    <th>Вс</th>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                        <!-- пример оформления ячейки в календаре -->
-                    <td>
-                        <div class="date_num">
-                           <p> 1 </p>
-                        </div>
-                        <div class="event" style="background-color: #DEEFD7;">
-                            уборка
-                        </div>
-                        <div class="event" style="background-color: #F7D0D0;">
-                            подготовка к экзамену
-                        </div>
-                    </td>
-                    <td>
-                        <div class="date_num">
-                            <p> 2 </p>
-                        </div>
-                        <div class="event" style="background-color: #F7D0D0;">
-                            репетитор по русскому
-                        </div>
-                        <div class="event" style="background-color: #DCE6F2;">
-                            музыкалка
-                        </div>
+        </nav>
 
-                    </td>
-                    <td><div class="date_num">
-                        <p> 3 </p>
-                     </div></td>
-                    <td><div class="date_num">
-                        <p> 4 </p>
-                     </div></td>
-                </tr>
-                <tr>
-                    <td><div class="date_num">
-                        <p> 5 </p>
-                     </div></td>
-                    <td><div class="date_num">
-                        <p> 6 </p>
-                     </div>
-                     <div class="event" style="background-color: #DEEFD7;">
-                        помочь маме
-                    </div></td>
-                    <td><div class="date_num">
-                        <p> 7 </p>
-                     </div></td>
-                    <td><div class="date_num">
-                        <p> 8 </p>
-                     </div></td>
-                    <td><div class="date_num">
-                        <p> 9 </p>
-                     </div</td>
-                    <td><div class="date_num">
-                        <p> 10 </p>
-                     </div></td>
-                    <td><div class="date_num">
-                        <p> 11 </p>
-                     </div></td>
-                </tr>
-                <tr>
-                    <td><div class="date_num">
-                        <p> 12 </p>
-                     </div></td>
-                    <td><div class="date_num">
-                        <p> 13 </p>
-                     </div></td>
-                    <td><div class="date_num">
-                        <p> 14 </p>
-                     </div></td>
-                    <td><div class="date_num">
-                        <p> 15 </p>
-                     </div></td>
-                    <td><div class="date_num">
-                        <p> 16 </p>
-                     </div></td>
-                    <td><div class="date_num">
-                        <p> 17 </p>
-                     </div>
-                     <div class="event" style="background-color: #F7D0D0;">
-                        репетитор по физике
-                    </div></td>
-                    <td><div class="date_num">
-                        <p> 18 </p>
-                     </div></td>
-                </tr>
-                <tr>
-                    <td><div class="date_num">
-                        <p> 19 </p>
-                     </div></td>
-                    <td><div class="date_num">
-                        <p> 20 </p>
-                     </div></td>
-                    <td><div class="date_num">
-                        <p> 21 </p>
-                     </div>
-                     <div class="event" style="background-color: #DCE6F2;">
-                        музыкалка
-                    </div></td>
-                    <td><div class="date_num">
-                        <p> 22 </p>
-                     </div></td>
-                    <td><div class="date_num">
-                        <p> 23 </p>
-                     </div></td>
-                    <td><div class="date_num">
-                        <p> 24 </p>
-                     </div></td>
-                    <td><div class="date_num">
-                        <p> 25 </p>
-                     </div></td>
-                </tr>
-                <tr>
-                    <td><div class="date_num">
-                        <p> 26 </p>
-                     </div></td>
-                    <td><div class="date_num">
-                        <p> 27 </p>
-                     </div></td>
-                    <td><div class="date_num">
-                        <p> 28 </p>
-                     </div></td>
-                    <td><div class="date_num">
-                        <p> 29 </p>
-                     </div></td>
-                    <td><div class="date_num">
-                        <p> 30 </p>
-                     </div></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </table>
+        <div class="content">
+            <div class="wrapper">
+                <div class="wrapper1">
+                    <button class="create-event-btn1">Создать событие</button>
+                </div>
+                <div class="wrapper2">
+                    <input type="text" id="search-box" name="search-box">
+                </div>
+                <div class="wrapper3">
+                    <button class="create-event-btn2">Фильтр по тегам</button>
+                </div>
+            </div>
+
+            <div class="calendar">
+                <div class="month">
+                    <a href="#" class="arrows">&#8249;</a>
+                    <strong>Июнь</strong>
+                    <strong>2023</strong>
+                    <a href="#" class="arrows">&#8250;</a>
+                </div>
+                <table>
+                    <tr>
+                        <th>Пн</th>
+                        <th>Вт</th>
+                        <th>Ср</th>
+                        <th>Чт</th>
+                        <th>Пт</th>
+                        <th>Сб</th>
+                        <th>Вс</th>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <!-- пример оформления ячейки в календаре -->
+                        <td>
+                            <div class="date_num">
+                                <p> 1 </p>
+                            </div>
+                            <div class="event" style="background-color:
+                                #DEEFD7;">
+                                уборка
+                            </div>
+                            <div class="event" style="background-color:
+                                #F7D0D0;">
+                                подготовка к экзамену
+                            </div>
+                        </td>
+                        <td>
+                            <div class="date_num">
+                                <p> 2 </p>
+                            </div>
+                            <div class="event" style="background-color:
+                                #F7D0D0;">
+                                репетитор по русскому
+                            </div>
+                            <div class="event" style="background-color:
+                                #DCE6F2;">
+                                музыкалка
+                            </div>
+
+                        </td>
+                        <td><div class="date_num">
+                                <p> 3 </p>
+                            </div></td>
+                        <td><div class="date_num">
+                                <p> 4 </p>
+                            </div></td>
+                    </tr>
+                    <tr>
+                        <td><div class="date_num">
+                                <p> 5 </p>
+                            </div></td>
+                        <td><div class="date_num">
+                                <p> 6 </p>
+                            </div>
+                            <div class="event" style="background-color:
+                                #DEEFD7;">
+                                помочь маме
+                            </div></td>
+                        <td><div class="date_num">
+                                <p> 7 </p>
+                            </div></td>
+                        <td><div class="date_num">
+                                <p> 8 </p>
+                            </div></td>
+                        <td><div class="date_num">
+                                <p> 9 </p>
+                            </div</td>
+                        <td><div class="date_num">
+                                <p> 10 </p>
+                            </div></td>
+                        <td><div class="date_num">
+                                <p> 11 </p>
+                            </div></td>
+                    </tr>
+                    <tr>
+                        <td><div class="date_num">
+                                <p> 12 </p>
+                            </div></td>
+                        <td><div class="date_num">
+                                <p> 13 </p>
+                            </div></td>
+                        <td><div class="date_num">
+                                <p> 14 </p>
+                            </div></td>
+                        <td><div class="date_num">
+                                <p> 15 </p>
+                            </div></td>
+                        <td><div class="date_num">
+                                <p> 16 </p>
+                            </div></td>
+                        <td><div class="date_num">
+                                <p> 17 </p>
+                            </div>
+                            <div class="event" style="background-color:
+                                #F7D0D0;">
+                                репетитор по физике
+                            </div></td>
+                        <td><div class="date_num">
+                                <p> 18 </p>
+                            </div></td>
+                    </tr>
+                    <tr>
+                        <td><div class="date_num">
+                                <p> 19 </p>
+                            </div></td>
+                        <td><div class="date_num">
+                                <p> 20 </p>
+                            </div></td>
+                        <td><div class="date_num">
+                                <p> 21 </p>
+                            </div>
+                            <div class="event" style="background-color:
+                                #DCE6F2;">
+                                музыкалка
+                            </div></td>
+                        <td><div class="date_num">
+                                <p> 22 </p>
+                            </div></td>
+                        <td><div class="date_num">
+                                <p> 23 </p>
+                            </div></td>
+                        <td><div class="date_num">
+                                <p> 24 </p>
+                            </div></td>
+                        <td><div class="date_num">
+                                <p> 25 </p>
+                            </div></td>
+                    </tr>
+                    <tr>
+                        <td><div class="date_num">
+                                <p> 26 </p>
+                            </div></td>
+                        <td><div class="date_num">
+                                <p> 27 </p>
+                            </div></td>
+                        <td><div class="date_num">
+                                <p> 28 </p>
+                            </div></td>
+                        <td><div class="date_num">
+                                <p> 29 </p>
+                            </div></td>
+                        <td><div class="date_num">
+                                <p> 30 </p>
+                            </div></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
         </div>
-	</div>
-	
-</body>
+
+    </body>
 </html>

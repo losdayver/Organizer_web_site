@@ -1,52 +1,53 @@
 .create-task {
-	display: flex;
-	align-items: center;
-	margin-top: 20px;
-	margin-bottom: 10px;
-	justify-content: center;
-  }
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  justify-content: center;
+}
 
-  .create-task-btn1 {
-    white-space: nowrap;
-    background-color: #99B9BB;
-    box-shadow: inset 0 0 0 2px #61898B;
-    color: #ffffff;
-    padding: 15px 40px;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    margin-left: auto;
-    font-size: 22px;
-    margin-right: 20px;
-    }
-    
-    .create-task-btn2 {
-    white-space: nowrap;
-    background-color: rgb(255, 255, 255);
-    box-shadow: inset 0 0 0 2px #61898B;
-    color: #61898B;
-    padding: 15px 40px;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    font-size: 22px;
-    }
+.create-task-btn1 {
+  white-space: nowrap;
+  background-color: #99B9BB;
+  box-shadow: inset 0 0 0 2px #61898B;
+  color: #ffffff;
+  padding: 15px 40px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  margin-left: auto;
+  font-size: 22px;
+  margin-right: 20px;
+}
 
-    .create-task-btn1:hover {
-      background-color: #61898B;
-      }
-      
-      .create-task-btn2:hover {
-      background-color: #E6F1F7}
-      
-.mn h2{
-    font-family: 'Noto Sans', sans-serif;
-    font-weight: bold;
-    text-align: center;
-    font-size: 80px;
-    color: #61898B;
-    margin-bottom: 35px;
-    margin-top: 22px;
+.create-task-btn2 {
+  white-space: nowrap;
+  background-color: rgb(255, 255, 255);
+  box-shadow: inset 0 0 0 2px #61898B;
+  color: #61898B;
+  padding: 15px 40px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 22px;
+}
+
+.create-task-btn1:hover {
+  background-color: #61898B;
+}
+
+.create-task-btn2:hover {
+  background-color: #E6F1F7
+}
+
+.mn h2 {
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: bold;
+  text-align: center;
+  font-size: 80px;
+  color: #61898B;
+  margin-bottom: 35px;
+  margin-top: 22px;
 }
 
 table td:nth-child(1) {
@@ -62,39 +63,40 @@ table td:nth-child(3) {
 }
 
 .arrows {
-	text-decoration: none;
-	display: inline-block;
-	padding: 10px 10px;
-	color:  #000000;
+  text-decoration: none;
+  display: inline-block;
+  padding: 10px 10px;
+  color: #000000;
   font-weight: bold;
-  }
-  
-  .arrows:hover {
-	color:  #61898B;
-  }
-
-.tasks table, .tasks th, .tasks td{
-    width: 100%;
-    table-layout: fixed;
-    text-align: center;
-    font-size: 27px;
-    border-collapse: collapse;
-    border:2px solid #61898B;
-    font-family: 'Noto Sans', sans-serif;
 }
-  
-  .tasks table th {
-    background-color: #61898B;
-   color: #FFF;
-   font-size: 22px;
-   font-weight: bold;
-   padding: 15px;
-   text-align: center;
-   text-transform: uppercase;
-  }
 
-  .tasks table td {
-    border: 1px solid #61898B;
-    padding: 10px;
-  }
+.arrows:hover {
+  color: #61898B;
+}
 
+.tasks table,
+.tasks th,
+.tasks td {
+  width: 100%;
+  table-layout: fixed;
+  text-align: center;
+  font-size: 27px;
+  border-collapse: collapse;
+  border: 2px solid #61898B;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.tasks table th {
+  background-color: #61898B;
+  color: #FFF;
+  font-size: 22px;
+  font-weight: bold;
+  padding: 15px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.tasks table td {
+  border: 1px solid #61898B;
+  padding: 10px;
+}

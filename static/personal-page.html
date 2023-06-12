@@ -2,7 +2,7 @@
 <html lang="ru">
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Добавить задачу</title>
+        <title>Личная страница</title>
         <!-- Bootstrap reboot (для сброса стилей) -->
         <link rel="stylesheet" href="libs/bootstrap-reboot.min.css">
 
@@ -17,8 +17,8 @@
             href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;1,400&display=swap"
             rel="stylesheet">
 
-        <link rel="stylesheet" href="css/register.css">
-        <link rel="stylesheet" type="text/css" href="register.css">
+        <link rel="stylesheet" href="css/personal-page.css">
+        <link rel="stylesheet" type="text/css" href="personal-page.css">
 
         <link rel="stylesheet" href="css/header.css">
         <link rel="stylesheet" type="text/css" href="header.css">
@@ -38,21 +38,25 @@
             </div>
         </nav>
 
-        <h2>Добавление задачи</h2>
+        <div class="personal">
+            <h2>Добро пожаловать, Имя!</h2>
+            <a href="#">
+                <div class="calendar1">
+                    <p><strong>Календарь</strong></p>
+                </div>
+            </a>
+            <a href="#">
+                <div class="notes2">
+                    <p><strong>Заметки</strong></p>
+                </div>
+            </a>
+            <a href="#">
+                <div class="tasks3">
+                    <p><strong>Задачи</strong></p>
+                </div>
+            </a>
+        </div>
 
-        <form>
-            <label for="event_name">Название задачи:</label>
-            <input type="text" id="event_name" name="event_name" required>
-            <label for="status-task">Выберете статус задачи:</label>
-            <input list="status" name="status-task">
-            <div><datalist id="status">
-                    <option value="Запланировано">
-                        <option value="В процессе">
-                            <option value="Сделано">
-                            </datalist></div>
 
-                        <input type="submit" value="Добавить задачу">
-                        <input type="submit" value="Удалить задачу">
-                    </form>
-                </body>
-            </html>
+    </body>
+</html>
