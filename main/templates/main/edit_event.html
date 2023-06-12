@@ -26,10 +26,12 @@
         <input type="text" id="tag" name="tag" value="{{event.tag}}" required>
 
         <input type="submit" value="Изменить событие">
+        
     </form>
     <form method="post">
         {%csrf_token%}
         <input type="hidden" name="form_id" value="delete">
         <input type="submit" value="Удалить событие">
     </form>
+    
 {%endblock%}
