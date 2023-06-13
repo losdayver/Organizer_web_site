@@ -269,16 +269,18 @@ def tasks(request):
             print(tasks_done)
 
             for task in tasks_done:
-                task.delete()
+                task.delete()       
 
-            
-
+    # Выборка из базы данных задач со статусами 1, 2 и 3
     tasks_1 = Task.objects.filter(author=request.user, status=1)
     tasks_2 = Task.objects.filter(author=request.user, status=2)
     tasks_3 = Task.objects.filter(author=request.user, status=3)
 
+
     max_query_length = max(len(tasks_1), len(tasks_2), len(tasks_3))
 
+
+    # Структуризация данных
     task_dict_list = []
 
     for i in range(max_query_length):
@@ -293,6 +295,7 @@ def tasks(request):
 
         task_dict_list.append({'task_1':task_1, 'task_2':task_2, 'task_3':task_3})
 
+    # Передаем обработанные данные в шаблон и потом возвращаем обработанный шаблон пользователю
     return render(request, 'main/tasks.html', {'task_dict_list':task_dict_list})
 
 @login_required(login_url='/login')
