@@ -186,6 +186,12 @@ def edit_event(request):
 def notes(request):
     notes = Note.objects.filter(author=request.user).order_by('-lastModifiedTime')
 
+    try:
+        name = request.GET.get('search')
+        if name == '': raise Exception()
+        notes = notes.filter(name=name)
+    except: pass
+
     return render(request, 'main/notes.html', {'notes':notes})
 
 @login_required(login_url='/login')
