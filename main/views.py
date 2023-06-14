@@ -11,6 +11,7 @@ from django.forms.models import model_to_dict
 
 import random
 
+# Словарь соответствия номера месяца его названию
 month_names = {
     1: 'Январь',
     2: 'Февраль',
@@ -26,12 +27,14 @@ month_names = {
     12: 'Декабрь',
 }
 
-# Create your views here
+# Далее описаны обработчики маршрутов из файла urls.py
 def home(request):
     return render(request, 'main/home.html', {})
 
+# Обработчик страницы календаря
 @login_required(login_url='/login')
 def calendar(request):
+    # Данный блок кода добовляет к строке поиска значение tag_search, если оно передано в заросе GET
     if request.method == 'GET':
         try:
             tag_search = request.GET.get('search_bar_contents')
@@ -41,6 +44,8 @@ def calendar(request):
         except:
             pass
 
+        # Этот блок пытается получить данные о месяце и годе из GET запроса
+        # Если не удается -- перенаправляет на страницу с текущими месяцем и годом
         try:
             year = int(request.GET.get('year'))
             month = int(request.GET.get('month'))
@@ -57,23 +62,28 @@ def calendar(request):
 
             return redirect(redirect_url)
 
+        # В данной переменной хранится количество дней в конкретном месяце конкретного года
         num_days = monthrange(year, month)[1]
 
-        # 0 = monday
+        # Вычесляет с какого дня недели начинается месяц (0 = понедельник)  
         start_day = weekday(year, month, 1)
 
+        # Вычисляется дата начала и конца месяца (для фильтрации запросов)
         start_date = datetime(year, month, 1)
         end_date = start_date.replace(day=num_days)
 
         # data index = calendar row index
         data = [None]*start_day
 
+        # Массив Data заполняется словарями по шаблону
         for i in range(num_days):
             data.append({ 'date_num': i + 1, 'events': [] })
 
+        # Получаем данные из базы
         objects = Event.objects.filter(author=request.user)
         objects = objects.filter(Q(startTime__gte=start_date) & Q(startTime__lte=end_date))
 
+        # Если в запросе введен тег -- применяем фильтрацию по тегу, иначе не фильтруем
         try:
             tag = request.GET.get('tag')
 
@@ -83,6 +93,7 @@ def calendar(request):
             objects = objects.filter(tag=tag)
         except: pass
 
+        # Формируем данные
         for o in objects:
             event_dict = model_to_dict(o)
 
@@ -95,24 +106,29 @@ def calendar(request):
 
             data[event_day + start_day - 1]['events'].append(event_dict)
 
+    # Ренедерим страницу и посылаем клиенту
     return render (request, 'main/calendar.html', {'data': data, 
                                                             'year_month': f'{year} {month}', 
                                                             'month_name': month_names[month],
                                                             'year': year,
                                                             'search_bar_contents':f'/calendar?year={year}&month={month}'})
 
+# Данная функция генерирует случайный цвет вида #xxxxxx, используя слово как seed для random
 def generate_color(word):
     random.seed(word)
     color = '#{:06x}'.format(random.randint(0x555555, 0xbbbbbb))
     return color
 
+# Тест
 def testing(request):
     return render(request, 'main/notes.html', {})
 
+# Страница логина
 @login_required(login_url='/login')
 def profile(request):
     return render(request, 'main/profile.html')
 
+# Страница регистрации
 def sing_up(request): 
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
@@ -125,9 +141,9 @@ def sing_up(request):
 
     return render(request, 'registration/sign_up.html', {'form': form})
 
+# Страница создания события
 @login_required(login_url='/login')
 def create_event(request):
-
     if request.method == 'POST':
         name = request.POST.get('name')
         text = request.POST.get('text')
@@ -148,6 +164,7 @@ def create_event(request):
 
     return render(request, 'main/create_event.html') 
 
+# Страница редактирования события
 @login_required(login_url='/login')
 def edit_event(request):
     id = request.GET.get('id')
@@ -182,18 +199,23 @@ def edit_event(request):
 
     return render(request, 'main/edit_event.html', {'event':event})
 
+# Страница заметок
 @login_required(login_url='/login')
 def notes(request):
+    # Получение заметок из базы данных и филтрация по убыванию
     notes = Note.objects.filter(author=request.user).order_by('-lastModifiedTime')
 
+    # Поиск по имени заметки. Если имя пустое -- поиск игнорируется
     try:
         name = request.GET.get('search')
         if name == '': raise Exception()
         notes = notes.filter(name=name)
     except: pass
 
+    # Пользователь получает отрендеренную страницу
     return render(request, 'main/notes.html', {'notes':notes})
 
+# Страница создания заметки
 @login_required(login_url='/login')
 def create_note(request):
     if request.method == 'POST':
@@ -214,6 +236,7 @@ def create_note(request):
 
     return render(request, 'main/create_note.html') 
 
+# Страница редактирования заметки
 @login_required(login_url='/login')
 def edit_note(request):
 
@@ -248,11 +271,13 @@ def edit_note(request):
     note = Note.objects.filter(id=id)[0]
     return render(request, 'main/edit_note.html', {'note':note}) 
 
+# Страница задач
 @login_required(login_url='/login')
 def tasks(request):
     if request.method == 'POST':
         form_id = request.POST.get('form_id')
         
+        # Если пользователь нажал на стрелку перемещения события по статусу
         if form_id == 'move_task':
             task_id = request.POST.get('task_id')
             action = request.POST.get('action')
@@ -263,6 +288,7 @@ def tasks(request):
             elif action == 'move_left': task.status -= 1
 
             task.save()
+        # Если пользователь нажал на кнопку "Удалить завершенные"
         elif form_id == 'delete_done':
             tasks_done = Task.objects.filter(author=request.user, status=3)
 
@@ -276,9 +302,7 @@ def tasks(request):
     tasks_2 = Task.objects.filter(author=request.user, status=2)
     tasks_3 = Task.objects.filter(author=request.user, status=3)
 
-
     max_query_length = max(len(tasks_1), len(tasks_2), len(tasks_3))
-
 
     # Структуризация данных
     task_dict_list = []
@@ -298,6 +322,7 @@ def tasks(request):
     # Передаем обработанные данные в шаблон и потом возвращаем обработанный шаблон пользователю
     return render(request, 'main/tasks.html', {'task_dict_list':task_dict_list})
 
+# Страница создания задачи
 @login_required(login_url='/login')
 def create_task(request):
     if request.method == 'POST':
